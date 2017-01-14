@@ -27,6 +27,8 @@ cd electron-quick-start
 npm install
 # Run the app
 npm start
+#Diego Comment
+console.log('teste')
 ```
 
 Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/).
