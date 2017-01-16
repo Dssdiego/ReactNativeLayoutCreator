@@ -17,45 +17,231 @@
 	<script type="text/javascript" src="scripts/app/config.js"></script>
 	<script type="text/javascript" src="scripts/components/todoList/todoListDirective.js"></script>
 
+	<!-- TODO: Adicionar Suporte à Língua PT-BR -->
+
 	<!--Include live reloading-->
 	<script src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
 
-	<div ng-controller="TodoController as todo" layout="column">
+	<div ng-controller="TodoController as todo" layout="column" style="height: 100%;" ng-cloak>
 
-		<!-- Input tasks -->
-		<md-content md-theme="docs-dark">
+	<!-- Menu Superior -->
 
-			<form ng-submit="todo.addTask()" layout="row" layout-align="center center" class="todo-form">
+	<md-toolbar class="md-hue-2">
+		<div class="md-toolbar-tools">
 
-				<md-input-container flex>
-					<label>Add new task</label>
-					<input ng-model="todo.inputTask">
-				</md-input-container>
+			<!-- Arquivo -->
+			<md-button class="md-icon-button">
+	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/file.svg"></md-icon>
+		    </md-button>
+		    <md-button class="md-icon-button">
+	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/content-save.svg"></md-icon>
+		    </md-button>
+		    <md-button class="md-icon-button">
+	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/exit-to-app.svg"></md-icon>
+		    </md-button>
 
-				<md-button class="md-icon-button md-primary" type="submit" aria-label="Add task">Add</md-button>
+		    <!-- TODO:  -->
+	        <!-- <md-menu>
+		      <md-button class="md-icon-button">
+		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/file.svg"></md-icon>
+		      </md-button>
+		      <md-menu-content width="4">
+		        <md-menu-item>
+		          <md-button ng-click="ctrl.redial($event)">
+		            <md-icon md-svg-icon="call:dialpad" md-menu-align-target></md-icon>
+		            Redial
+		          </md-button>
+		        </md-menu-item>
+		        <md-menu-item>
+		          <md-button disabled="disabled" ng-click="ctrl.checkVoicemail()">
+		            <md-icon md-svg-icon="call:voicemail"></md-icon>
+		            Check voicemail
+		          </md-button>
+		        </md-menu-item>
+		        <md-menu-divider></md-menu-divider>
+		        <md-menu-item>
+		          <md-button ng-click="ctrl.toggleNotifications()">
+		            <md-icon md-svg-icon="social:notifications-{{ctrl.notificationsEnabled ? 'off' : 'on'}}"></md-icon>
+		            {{ctrl.notificationsEnabled ? 'Disable' : 'Enable' }} notifications
+		          </md-button>
+		        </md-menu-item>
+		      </md-menu-content>
+		    </md-menu> -->
 
-			</form>
+		    <!-- Espaço Em Branco -->
+	        <span flex></span>
 
-		</md-content>
+	        <!-- Outros Botões -->
+			<md-button class="md-icon-button">
+	          <md-icon md-svg-icon="./../assets/icons/dots-vertical.svg"></md-icon>
+	        </md-button>
+        </div>
+    </md-toolbar>
 
-		<!-- Todo content -->
-		<md-content class="content-container" layout="column" layout-align="center center">
+	<section layout="row" flex>
 
-			<!-- Indicator and status message -->
-			<label class="todo-indicator" ng-class="todo.incompleteTasks.length ? 'todo-indicator-incomplete' : 'todo-indicator-complete'">{{ todo.incompleteTasks.length ? todo.incompleteTasks.length : "&#10004;" }}</label>
-			<label class="todo-message">{{ (todo.incompleteTasks.length ? "Hey chief, some items of utmost importance await your attention!" : "No stuff to do for now; you're either very efficient or lazy to add an item!") }}</label>
+	<!-- Left Side Bar -->
 
-			<!-- List incomplete tasks -->
-			<todo-list tasks="todo.incompleteTasks" refresh-tasks="todo.refreshTasks()"></todo-list>
+    <md-sidenav class="md-sidenav-left" md-component-id="left"          md-whiteframe="2" md-is-locked-open="true">
 
-			<!-- List completed tasks -->
-			<md-button ng-click="todo.toggleCompletedTasks()">{{ todo.showCompleted ? "Hide completed" : "Show completed" }}</md-button>
-			<todo-list tasks="todo.completedTasks" refresh-tasks="todo.refreshTasks()" ng-show="todo.showCompleted" class="ng-hide"></todo-list>
+      <!-- Componentes -->
+      <md-toolbar>
+		<div class="md-toolbar-tools">
+			<h1 class="md-toolbar-tools">Componentes</h1>
+			<md-button class="md-icon-button">
+	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/magnify.svg"></md-icon>
+		    </md-button>
+	    </div>
+	  </md-toolbar>	
 
-		</md-content>
+      <md-content layout-margin style="height: 60%;">
+        <md-list flex>
 
+        <!-- Texto -->
+        <md-list-item class="md-2-line" ng-click="null">
+          <md-icon md-svg-src="./../assets/icons/format-color-text.svg" class="s24"></md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>Texto</h3>
+          </div>
+        </md-list-item>
+
+        <!-- Imagem -->
+        <md-list-item class="md-2-line" ng-click="null">
+          <md-icon md-svg-src="./../assets/icons/image.svg" class="s24"></md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>Imagem</h3>
+          </div>
+        </md-list-item>
+
+        <!-- ListView -->
+        <md-list-item class="md-2-line" ng-click="null">
+          <md-icon md-svg-src="./../assets/icons/format-list-bulleted.svg" class="s24"></md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>ListView</h3>
+          </div>
+        </md-list-item>
+
+        <!-- GridView -->
+        <md-list-item class="md-2-line" ng-click="null">
+          <md-icon md-svg-src="./../assets/icons/view-grid.svg" class="s24"></md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>GridView</h3>
+          </div>
+        </md-list-item>
+
+        <!-- TabView -->
+        <md-list-item class="md-2-line" ng-click="null">
+          <md-icon md-svg-src="./../assets/icons/tab.svg" class="s24"></md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>TabView</h3>
+          </div>
+        </md-list-item>
+
+        <!-- DatePicker -->
+        <md-list-item class="md-2-line" ng-click="null">
+          <md-icon md-svg-src="./../assets/icons/calendar-clock.svg" class="s24"></md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>DatePicker</h3>
+          </div>
+        </md-list-item>
+
+        <!-- Notificação -->
+        <md-list-item class="md-2-line" ng-click="null">
+          <md-icon md-svg-src="./../assets/icons/bell.svg" class="s24"></md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>Notificacao</h3>
+          </div>
+        </md-list-item>
+
+        </md-list flex>
+
+      </md-content>
+
+      <!-- API'S -->
+      <md-toolbar>
+		<div class="md-toolbar-tools">
+			<h1 class="md-toolbar-tools">API's</h1>
+			<md-button class="md-icon-button">
+	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/magnify.svg"></md-icon>
+		    </md-button>
+	    </div>
+	  </md-toolbar>	
+
+      <md-content layout-margin style="height: 40%;">
+
+      <md-list flex>
+
+      	<!-- Toast -->
+        <md-list-item class="md-2-line" ng-click="null">
+          <md-icon md-svg-src="./../assets/icons/information.svg" class="s24"></md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>Toast</h3>
+          </div>
+        </md-list-item>
+
+        <!-- Vibration -->
+        <md-list-item class="md-2-line" ng-click="null">
+          <md-icon md-svg-src="./../assets/icons/vibrate.svg" class="s24"></md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>Vibracao</h3>
+          </div>
+        </md-list-item>
+
+      </md-list>
+
+      </md-content>
+
+    </md-sidenav>
+
+
+    <!-- Canvas de Design -->
+    <md-content flex layout-padding>
+
+      <div layout="column" layout-align="top center">
+        <p>
+          Developers can also disable the backdrop of the sidenav.<br/>
+          This will disable the functionality to click outside to close the sidenav.
+        </p>
+
+        <div>
+			<p>Canvas de Desenho</p>
+        </div>
+
+      </div>
+
+    </md-content>
+
+
+    <!-- Right Side Bar -->
+    <md-sidenav class="md-sidenav-right" md-component-id="left"
+                md-whiteframe="2" md-is-locked-open="true">
+
+      <md-toolbar>
+        <h1 class="md-toolbar-tools">Layout</h1>
+      </md-toolbar>
+
+      <md-content layout-margin style="height: 50%;">
+        <p>
+          This sidenav is not showing any backdrop, where users can click on it, to close the sidenav.
+        </p>
+      </md-content>
+
+      <!-- Propriedades -->
+      <md-toolbar>
+        <h1 class="md-toolbar-tools">Propriedades</h1>
+      </md-toolbar>
+
+      <md-content layout-margin style="height: 50%;">
+        <p>
+          This sidenav is not showing any backdrop, where users can click on it, to close the sidenav.
+        </p>
+      </md-content>
+
+      </md-sidenav>
+
+  	</section>
 
 	</div>
 

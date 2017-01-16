@@ -1,5 +1,6 @@
-# React Native  Layout  Creator
+# EA Todo
 
-Aplicação para criar layouts para React Native.
+Application for introduction series on integrating AngularJS with Electron. Introduction series can be found [here](http://electron.rocks/electron-angularjs/).
 
-Criado com [Angular](https://angularjs.org/) e [Electron](http://electron.atom.io/)
+![image](preview.png)
+

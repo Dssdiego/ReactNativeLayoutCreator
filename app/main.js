@@ -16,10 +16,10 @@ global.logger = logger;
 var mainWindow = null;
 
 var updateFeed = 'http://localhost:3000/updates/latest';
-var isDevelopment = true; //= process.env.NODE_ENV === 'development';
+var isDevelopment = true; //process.env.NODE_ENV === 'development';
 var feedURL = "";
 
-var appMenu = require('./menus/appMenu.js');
+// var appMenu = require('./menus/appMenu.js')
 
 // Don't use auto-updater if we are in development 
 if (!isDevelopment) {
@@ -74,15 +74,15 @@ app.on('window-all-closed', function() {
 // When application is ready, create application window
 app.on('ready', function() {
 
-    logger.debug("Iniciando Aplicacao");
+    logger.debug("Starting application");
 
     // Create main window
     // Other options available at:
     // http://electron.atom.io/docs/latest/api/browser-window/#new-browserwindow-options
     mainWindow = new BrowserWindow({
-        name: "rnlc",
-        width: 400,
-        height: 600,
+        name: "ea-todo",
+        width: 1280,
+        height: 720,
         toolbar: false
     });
 
