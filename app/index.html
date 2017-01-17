@@ -13,8 +13,8 @@
 	<script type="text/javascript" src="./node_modules/angular-material/angular-material.js"></script>
 
 	<script type="text/javascript" src="scripts/index.js"></script>
-	<script type="text/javascript" src="scripts/app/todoController.js"></script>
-	<script type="text/javascript" src="scripts/app/config.js"></script>
+	<script type="text/javascript" src="scripts/appController.js"></script>
+	<script type="text/javascript" src="scripts/config.js"></script>
 	<script type="text/javascript" src="scripts/components/todoList/todoListDirective.js"></script>
 
 	<!-- TODO: Adicionar Suporte à Língua PT-BR -->
@@ -24,7 +24,7 @@
 </head>
 <body>
 
-	<div ng-controller="TodoController as todo" layout="column" style="height: 100%;" ng-cloak>
+	<div ng-controller="AppController as app" layout="column" style="height: 100%;" ng-cloak>
 
 	<!-- Menu Superior -->
 
@@ -32,43 +32,88 @@
 		<div class="md-toolbar-tools">
 
 			<!-- Arquivo -->
-			<md-button class="md-icon-button">
+			<!-- <md-button class="md-icon-button">
 	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/file.svg"></md-icon>
-		    </md-button>
-		    <md-button class="md-icon-button">
-	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/content-save.svg"></md-icon>
-		    </md-button>
-		    <md-button class="md-icon-button">
-	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/exit-to-app.svg"></md-icon>
-		    </md-button>
+		    </md-button> -->
 
-		    <!-- TODO:  -->
-	        <!-- <md-menu>
-		      <md-button class="md-icon-button">
+		    <!-- Abrir -->
+		    <!-- <md-button class="md-icon-button">
+	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/folder.svg"></md-icon>
+		    </md-button> -->
+
+		    <!-- Salvar -->
+		    <!-- <md-button class="md-icon-button">
+	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/content-save.svg"></md-icon>
+		    </md-button> -->
+
+		    <!-- Salvar Como...-->
+		    <!-- <md-button class="md-icon-button">
+	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/content-save-all.svg"></md-icon>
+		    </md-button> -->
+
+		    <!-- Sair -->
+		    <!-- <md-button class="md-icon-button">
+	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/exit-to-app.svg"></md-icon>
+		    </md-button> -->
+
+		    <!-- Divider -->
+		    <!-- <md-divider class="menu-vertical-divider"></md-divider> -->
+
+		    <!-- TODO: Criar Menu -->
+	        <md-menu md-offset="20 60">
+		      <md-button class="md-icon-button" ng-click="app.openMenu($mdOpenMenu, $event)">
 		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/file.svg"></md-icon>
 		      </md-button>
 		      <md-menu-content width="4">
 		        <md-menu-item>
-		          <md-button ng-click="ctrl.redial($event)">
-		            <md-icon md-svg-icon="call:dialpad" md-menu-align-target></md-icon>
-		            Redial
+		          <md-button ng-click="app.newScene('Sem Titulo', ' ')">
+		          	<div layout="row" layout-align="start center" flex>
+		            	<md-icon md-svg-icon="./../assets/icons/plus.svg" md-menu-align-target></md-icon>
+		            	Nova Cena
+		            	<span flex></span>
+						<p>Ctrl + N</p>
+		            </div>
 		          </md-button>
 		        </md-menu-item>
 		        <md-menu-item>
-		          <md-button disabled="disabled" ng-click="ctrl.checkVoicemail()">
-		            <md-icon md-svg-icon="call:voicemail"></md-icon>
-		            Check voicemail
+		          <md-button ng-click="app.openScene()">
+		          	<div layout="row" layout-align="start center" flex>
+			            <md-icon md-svg-icon="./../assets/icons/folder.svg"></md-icon>
+			            Abrir Cena
+			            <span flex></span>
+						<p>Ctrl + O</p>
+		            </div>
 		          </md-button>
 		        </md-menu-item>
-		        <md-menu-divider></md-menu-divider>
 		        <md-menu-item>
-		          <md-button ng-click="ctrl.toggleNotifications()">
-		            <md-icon md-svg-icon="social:notifications-{{ctrl.notificationsEnabled ? 'off' : 'on'}}"></md-icon>
-		            {{ctrl.notificationsEnabled ? 'Disable' : 'Enable' }} notifications
+		          <md-button id="menuSaveBtn" ng-disabled="app.enableSaveBtn()" ng-click="app.saveScene()">
+		          	<div layout="row" layout-align="start center" flex>
+					  <md-icon md-svg-icon="./../assets/icons/content-save.svg"></md-icon>
+					  Salvar Cena
+					  <span flex></span>
+					  <p>Ctrl + S</p>
+					</div>		            
+		          </md-button>
+
+		        </md-menu-item>
+		        <md-menu-item>
+		          <md-button id="menuSaveAsBtn" ng-disabled="app.enableSaveBtn()" ng-click="app.saveSceneAs()">
+		            <md-icon md-svg-icon="./../assets/icons/content-save-all.svg"></md-icon>
+		            Salvar Cena Como...
+		          </md-button>
+		        </md-menu-item>
+		        <md-menu-item>
+		          <md-button ng-click="app.exitApp($event)">
+		          	<div layout="row" layout-align="start center" flex>
+			            <md-icon md-svg-icon="./../assets/icons/exit-to-app.svg"></md-icon>
+			            Sair
+			            <span flex></span>
+						<p>Ctrl + Q</p>
+		            </div>
 		          </md-button>
 		        </md-menu-item>
 		      </md-menu-content>
-		    </md-menu> -->
+		    </md-menu>
 
 		    <!-- Espaço Em Branco -->
 	        <span flex></span>
@@ -78,6 +123,7 @@
 	          <md-icon md-svg-icon="./../assets/icons/dots-vertical.svg"></md-icon>
 	        </md-button>
         </div>
+
     </md-toolbar>
 
 	<section layout="row" flex>
@@ -199,17 +245,21 @@
     <!-- Canvas de Design -->
     <md-content flex layout-padding>
 
-      <div layout="column" layout-align="top center">
-        <p>
-          Developers can also disable the backdrop of the sidenav.<br/>
-          This will disable the functionality to click outside to close the sidenav.
-        </p>
-
-        <div>
-			<p>Canvas de Desenho</p>
-        </div>
-
-      </div>
+	  	<!-- Área de TABS -->
+	    <md-content class="md-padding">
+		    <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
+		      <md-tab ng-repeat="tab in tabs"
+		              ng-disabled="tab.disabled"
+		              label="{{tab.title}}">
+			  		  <md-tab-body>
+				  		  <md-button class="md-icon-button" ng-click="app.removeTab( tab )">
+					        <md-icon md-menu-origin md-svg-icon="./../assets/icons/close.svg"></md-icon>
+					      </md-button>
+						  <p flex>Voce criou uma nova cena, parabens!</p>
+					  </md-tab-body>
+		      </md-tab>
+		    </md-tabs>
+		</md-content>
 
     </md-content>
 

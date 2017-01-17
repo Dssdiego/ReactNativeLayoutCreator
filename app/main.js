@@ -19,6 +19,8 @@ var updateFeed = 'http://localhost:3000/updates/latest';
 var isDevelopment = true; //process.env.NODE_ENV === 'development';
 var feedURL = "";
 
+global.dialog = require('electron').dialog
+
 // var appMenu = require('./menus/appMenu.js')
 
 // Don't use auto-updater if we are in development 

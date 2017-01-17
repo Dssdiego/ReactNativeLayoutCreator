@@ -47,3 +47,10 @@ body {
 todo-list {
 	width: 100%;
 }
+
+.menu-vertical-divider {
+  border-top-width: 0;
+  border-right-width: 1px;
+  border-right-style: solid;
+  height: 50%;
+}
