@@ -54,5 +54,8 @@
     "win": {
       "iconUrl": "http://eatodo.s3.amazonaws.com/icon.ico"
     }
+  },
+  "dependencies": {
+    "electron-localshortcut": "^1.0.0"
   }
 }

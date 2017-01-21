@@ -37,43 +37,43 @@
 	    		return false;
 	    };
 
-		this.openMenu = function($mdOpenMenu, ev) {
+		  this.openMenu = function($mdOpenMenu, ev) {
 	        originatorEv = ev;
 	        $mdOpenMenu(ev);
-      	};
+     	};
 
-      	this.newScene = function(title, view) {
-			var saveBtn = document.getElementById("menuSaveBtn");
+    	this.newScene = function(title, view) {
+		     var saveBtn = document.getElementById("menuSaveBtn");
 
-      		view = view || title + " Content View";
-      		tabs.push({ title: title, content: view, disabled: false});
-      		
-      		saveBtn.ngDisabled = "false";
-      	};
+    		 view = view || title + " Content View";
+    		 tabs.push({ title: title, content: view, disabled: false});
+    		
+    	   saveBtn.ngDisabled = "false";
+    	};
 
-      	this.openScene = function() {
-	      	dialog.showOpenDialog({
-	        	properties: ['openFile']
-	      	});
-      	};
+    	this.openScene = function() {
+      	dialog.showOpenDialog({
+        	properties: ['openFile']
+      	});
+    	};
 
-      	this.saveScene = function () {
-      		const options = {
-		    	title: 'Salvar Cena',
-		    }
-		    dialog.showSaveDialog(options)
-      	}
+    	this.saveScene = function () {
+    		const options = {
+	    	title: 'Salvar Cena',
+	    }
+	    dialog.showSaveDialog(options)
+    	}
 
-      	this.saveSceneAs = function () {
-      		const options = {
-		    	title: 'Salvar Cena Como...',
-		    }
-		    dialog.showSaveDialog(options)
-      	}
+    	this.saveSceneAs = function () {
+    		const options = {
+	    	title: 'Salvar Cena Como...',
+	    }
+	    dialog.showSaveDialog(options)
+    	}
 
-      	this.exitApp = function() {
-      	  	app.quit();
-        };
+    	this.exitApp = function() {
+    	  	app.quit();
+      };
 
 	}
 

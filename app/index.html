@@ -31,88 +31,175 @@
 	<md-toolbar class="md-hue-2">
 		<div class="md-toolbar-tools">
 
-			<!-- Arquivo -->
-			<!-- <md-button class="md-icon-button">
-	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/file.svg"></md-icon>
-		    </md-button> -->
-
-		    <!-- Abrir -->
-		    <!-- <md-button class="md-icon-button">
-	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/folder.svg"></md-icon>
-		    </md-button> -->
-
-		    <!-- Salvar -->
-		    <!-- <md-button class="md-icon-button">
-	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/content-save.svg"></md-icon>
-		    </md-button> -->
-
-		    <!-- Salvar Como...-->
-		    <!-- <md-button class="md-icon-button">
-	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/content-save-all.svg"></md-icon>
-		    </md-button> -->
-
-		    <!-- Sair -->
-		    <!-- <md-button class="md-icon-button">
-	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/exit-to-app.svg"></md-icon>
-		    </md-button> -->
-
 		    <!-- Divider -->
 		    <!-- <md-divider class="menu-vertical-divider"></md-divider> -->
 
-		    <!-- TODO: Criar Menu -->
+		    <!-- Arquivo -->
 	        <md-menu md-offset="20 60">
 		      <md-button class="md-icon-button" ng-click="app.openMenu($mdOpenMenu, $event)">
 		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/file.svg"></md-icon>
 		      </md-button>
-		      <md-menu-content width="4">
-		        <md-menu-item>
-		          <md-button ng-click="app.newScene('Sem Titulo', ' ')">
-		          	<div layout="row" layout-align="start center" flex>
-		            	<md-icon md-svg-icon="./../assets/icons/plus.svg" md-menu-align-target></md-icon>
-		            	Nova Cena
-		            	<span flex></span>
-						<p>Ctrl + N</p>
-		            </div>
-		          </md-button>
-		        </md-menu-item>
-		        <md-menu-item>
-		          <md-button ng-click="app.openScene()">
-		          	<div layout="row" layout-align="start center" flex>
-			            <md-icon md-svg-icon="./../assets/icons/folder.svg"></md-icon>
-			            Abrir Cena
-			            <span flex></span>
-						<p>Ctrl + O</p>
-		            </div>
-		          </md-button>
-		        </md-menu-item>
-		        <md-menu-item>
-		          <md-button id="menuSaveBtn" ng-disabled="app.enableSaveBtn()" ng-click="app.saveScene()">
-		          	<div layout="row" layout-align="start center" flex>
-					  <md-icon md-svg-icon="./../assets/icons/content-save.svg"></md-icon>
-					  Salvar Cena
-					  <span flex></span>
-					  <p>Ctrl + S</p>
-					</div>		            
-		          </md-button>
+			      <md-menu-content width="4">
+			        <md-menu-item>
+			          <md-button ng-click="app.newScene('Sem Titulo', ' ')">
+			          	<div layout="row" layout-align="start center" flex>
+			            	<md-icon md-svg-icon="./../assets/icons/plus.svg" md-menu-align-target></md-icon>
+			            	Nova Cena
+			            	<span flex></span>
+							<p>Ctrl + N</p>
+			            </div>
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-item>
+			          <md-button ng-click="app.openScene()">
+			          	<div layout="row" layout-align="start center" flex>
+				            <md-icon md-svg-icon="./../assets/icons/folder.svg"></md-icon>
+				            Abrir Cena
+				            <span flex></span>
+							<p>Ctrl + O</p>
+			            </div>
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-item>
+			          <md-button id="menuSaveBtn" ng-disabled="app.enableSaveBtn()" ng-click="app.saveScene()">
+			          	<div layout="row" layout-align="start center" flex>
+						  <md-icon md-svg-icon="./../assets/icons/content-save.svg"></md-icon>
+						  Salvar Cena
+						  <span flex></span>
+						  <p>Ctrl + S</p>
+						</div>		            
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-item>
+			          <md-button id="menuSaveAsBtn" ng-disabled="app.enableSaveBtn()" ng-click="app.saveSceneAs()">
+			            <md-icon md-svg-icon="./../assets/icons/content-save-all.svg"></md-icon>
+			            Salvar Como...
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-divider></md-menu-divider>
+			        <md-menu-item>
+			          <md-button ng-click="">
+			          	<div layout="row" layout-align="start center" flex>
+				            <md-icon md-svg-icon="./../assets/icons/file-import.svg"></md-icon>
+				            Importar...
+				            <span flex></span>
+							<p>Ctrl + I</p>
+			            </div>
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-item>
+			          <md-button ng-click="" ng-disabled="app.enableSaveBtn()">
+			          	<div layout="row" layout-align="start center" flex>
+				            <md-icon md-svg-icon="./../assets/icons/file-export.svg"></md-icon>
+				            Exportar...
+				            <span flex></span>
+							<p>Ctrl + E</p>
+			            </div>
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-divider></md-menu-divider>
+			        <md-menu-item>
+			          <md-button ng-click="app.exitApp($event)">
+			          	<div layout="row" layout-align="start center" flex>
+				            <md-icon md-svg-icon="./../assets/icons/exit-to-app.svg"></md-icon>
+				            Sair
+				            <span flex></span>
+							<p>Ctrl + Q</p>
+			            </div>
+			          </md-button>
+			        </md-menu-item>
+			      </md-menu-content>
+		    </md-menu>
 
-		        </md-menu-item>
-		        <md-menu-item>
-		          <md-button id="menuSaveAsBtn" ng-disabled="app.enableSaveBtn()" ng-click="app.saveSceneAs()">
-		            <md-icon md-svg-icon="./../assets/icons/content-save-all.svg"></md-icon>
-		            Salvar Cena Como...
-		          </md-button>
-		        </md-menu-item>
-		        <md-menu-item>
-		          <md-button ng-click="app.exitApp($event)">
-		          	<div layout="row" layout-align="start center" flex>
-			            <md-icon md-svg-icon="./../assets/icons/exit-to-app.svg"></md-icon>
-			            Sair
-			            <span flex></span>
-						<p>Ctrl + Q</p>
-		            </div>
-		          </md-button>
-		        </md-menu-item>
-		      </md-menu-content>
+		    <!-- Editar -->
+		    <md-menu md-offset="0 50">
+		      <md-button class="md-icon-button" ng-click="app.openMenu($mdOpenMenu, $event)">
+		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/pencil.svg"></md-icon>
+		      </md-button>
+		      	<md-menu-content width="4">
+		      		<md-menu-item>
+			          <md-button ng-click="">
+			          	<div layout="row" layout-align="start center" flex>
+				            <md-icon md-svg-icon="./../assets/icons/undo.svg"></md-icon>
+				            Undo
+				            <span flex></span>
+							<p>Ctrl + Z</p>
+			            </div>
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-item>
+			          <md-button ng-click="">
+			          	<div layout="row" layout-align="start center" flex>
+				            <md-icon md-svg-icon="./../assets/icons/redo.svg"></md-icon>
+				            Redo
+				            <span flex></span>
+							<p>Ctrl + Shift + Z</p>
+			            </div>
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-divider></md-menu-divider>
+			        <md-menu-item>
+			          <md-button ng-click="">
+			          	<div layout="row" layout-align="start center" flex>
+				            <md-icon md-svg-icon="./../assets/icons/content-cut.svg"></md-icon>
+				            Cortar
+				            <span flex></span>
+							<p>Ctrl + X</p>
+			            </div>
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-item>
+			          <md-button ng-click="">
+			          	<div layout="row" layout-align="start center" flex>
+				            <md-icon md-svg-icon="./../assets/icons/content-copy.svg"></md-icon>
+				            Copiar
+				            <span flex></span>
+							<p>Ctrl + C</p>
+			            </div>
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-item>
+			          <md-button ng-click="">
+			          	<div layout="row" layout-align="start center" flex>
+				            <md-icon md-svg-icon="./../assets/icons/content-paste.svg"></md-icon>
+				            Colar
+				            <span flex></span>
+							<p>Ctrl + V</p>
+			            </div>
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-item>
+			          <md-button ng-click="">
+			          	<div layout="row" layout-align="start center" flex>
+				            <md-icon md-svg-icon="./../assets/icons/select-all.svg"></md-icon>
+				            Selecionar Tudo
+				            <span flex></span>
+							<p>Ctrl + A</p>
+			            </div>
+			          </md-button>
+			        </md-menu-item>
+		      	</md-menu-content>
+		    </md-menu>
+
+		    <!-- Ajuda -->
+		    <md-menu md-offset="0 50">
+		      <md-button class="md-icon-button" ng-click="app.openMenu($mdOpenMenu, $event)">
+		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/help-circle.svg"></md-icon>
+		      </md-button>
+		      <md-menu-content width="3">
+		      	<md-menu-item>
+		          <md-button id="menuSaveAsBtn" ng-click="">
+			            <md-icon md-svg-icon="./../assets/icons/file-document.svg"></md-icon>
+			            Documentacao
+			      </md-button>
+			    </md-menu-item>
+			    <md-menu-item>
+		          <md-button id="menuSaveAsBtn" ng-click="">
+			            <md-icon md-svg-icon="./../assets/icons/information.svg"></md-icon>
+			            Sobre o app...
+			      </md-button>
+			    </md-menu-item>
+		      </md-content>
 		    </md-menu>
 
 		    <!-- Espaço Em Branco -->
@@ -193,14 +280,6 @@
           </div>
         </md-list-item>
 
-        <!-- Notificação -->
-        <md-list-item class="md-2-line" ng-click="null">
-          <md-icon md-svg-src="./../assets/icons/bell.svg" class="s24"></md-icon>
-          <div class="md-list-item-text" layout="column">
-            <h3>Notificacao</h3>
-          </div>
-        </md-list-item>
-
         </md-list flex>
 
       </md-content>
@@ -232,6 +311,14 @@
           <md-icon md-svg-src="./../assets/icons/vibrate.svg" class="s24"></md-icon>
           <div class="md-list-item-text" layout="column">
             <h3>Vibracao</h3>
+          </div>
+        </md-list-item>
+
+        <!-- Notificação -->
+        <md-list-item class="md-2-line" ng-click="null">
+          <md-icon md-svg-src="./../assets/icons/bell.svg" class="s24"></md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>Notificacao</h3>
           </div>
         </md-list-item>
 

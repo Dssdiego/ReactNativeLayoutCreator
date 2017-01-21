@@ -1,6 +1,7 @@
 // Handle Squirrel events for Windows immediately on start
 if(require('electron-squirrel-startup')) return;
 
+// Imports de Biblioteca (Padrão)
 const electron = require('electron');
 const {app} = electron;
 const {BrowserWindow} = electron;
@@ -8,6 +9,10 @@ const {autoUpdater} = electron;
 const {ipcMain} = electron;
 const os = require('os');
 
+// Atalhos de Teclado
+const electronLocalshortcut = require('electron-localshortcut');
+
+// Logger
 const logger = require('winston');
 logger.level = 'debug';
 global.logger = logger;
@@ -19,7 +24,7 @@ var updateFeed = 'http://localhost:3000/updates/latest';
 var isDevelopment = true; //process.env.NODE_ENV === 'development';
 var feedURL = "";
 
-global.dialog = require('electron').dialog
+global.dialog = require('electron').dialog;
 
 // var appMenu = require('./menus/appMenu.js')
 
@@ -106,4 +111,55 @@ app.on('ready', function() {
         });
     }
 
+    // Atalhos do Teclado
+
+    // Nova Cena
+    electronLocalshortcut.register(mainWindow, 'CommandOrControl+N', function () {
+        // TODO: Nova Cena
+    });
+
+    // Abrir Cena
+    electronLocalshortcut.register(mainWindow, 'CommandOrControl+O', function () {
+        dialog.showOpenDialog({
+                properties: ['openFile']
+        });
+    });
+
+    // Salvar Cena
+    electronLocalshortcut.register(mainWindow, 'CommandOrControl+S', function () {
+        const options = {
+                title: 'Salvar Cena',
+            }
+        dialog.showSaveDialog(options);
+    });
+
+    // Salvar Como...
+    electronLocalshortcut.register(mainWindow, 'CommandOrControl+Shift+S', function () {
+        const options = {
+                title: 'Salvar Cena Como...',
+            }
+        dialog.showSaveDialog(options);
+    });
+
+    // Importar
+    electronLocalshortcut.register(mainWindow, 'CommandOrControl+I', function () {
+        // TODO: Importar
+    });
+
+    // Exportar
+    electronLocalshortcut.register(mainWindow, 'CommandOrControl+E', function () {
+        // TODO: Exportar
+    });
+
+    // Sair
+    electronLocalshortcut.register(mainWindow, 'CommandOrControl+Q', function () {
+        app.quit();
+    });
+
+});
+
+app.on('will-quit', function(){
+
+    // Unregister all shortcuts.
+    electronLocalshortcut.unregisterAll(mainWindow);
 });
