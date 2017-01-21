@@ -8,6 +8,7 @@ const {BrowserWindow} = electron;
 const {autoUpdater} = electron;
 const {ipcMain} = electron;
 const os = require('os');
+const path = require('path')
 
 // Atalhos de Teclado
 const electronLocalshortcut = require('electron-localshortcut');
@@ -87,7 +88,7 @@ app.on('ready', function() {
     // Other options available at:
     // http://electron.atom.io/docs/latest/api/browser-window/#new-browserwindow-options
     mainWindow = new BrowserWindow({
-        name: "ea-todo",
+        name: "React Native Layout Creator",
         width: 1280,
         height: 720,
         toolbar: false
@@ -151,9 +152,36 @@ app.on('ready', function() {
         // TODO: Exportar
     });
 
-    // Sair
-    electronLocalshortcut.register(mainWindow, 'CommandOrControl+Q', function () {
-        app.quit();
+    // F12 - Lista de Comandos
+    electronLocalshortcut.register(mainWindow, 'CommandOrControl+F12', function () {
+        // FIXME: Implementar atalho como F12 somente
+        const modalPath = path.join('file://', __dirname, '/commandList.html')
+        let commandList = new BrowserWindow({
+            name: "Lista de Comandos",
+            width: 800,
+            height: 600,
+            toolbar: true,
+            frame: false
+        })
+        commandList.on('close', function () { win = null })
+        commandList.loadURL(modalPath)
+        commandList.show() 
+    });
+
+    // F12 - Escolha de Tema
+    electronLocalshortcut.register(mainWindow, 'CommandOrControl+Alt+T', function () {
+        
+        const modalPath = path.join('file://', __dirname, '/themeChooser.html')
+        let commandList = new BrowserWindow({
+            name: "Lista de Comandos",
+            width: 640,
+            height: 480,
+            toolbar: true,
+            frame: false
+        })
+        commandList.on('close', function () { win = null })
+        commandList.loadURL(modalPath)
+        commandList.show() 
     });
 
 });

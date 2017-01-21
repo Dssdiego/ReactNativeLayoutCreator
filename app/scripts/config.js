@@ -5,12 +5,32 @@
 		.config(['$mdThemingProvider', configure]);
 
 	function configure($mdThemingProvider) {
-	    // Configure a dark theme with primary foreground yellow
+	    // Default Theme : Indigo
+	    // $mdThemingProvider
+	    // 	.theme('default')
+    	// 	.primaryPalette('green')
+    	// 	.accentPalette('orange');
+    	
+    	$mdThemingProvider.alwaysWatchTheme(true);
+
+    	// Green
 	    $mdThemingProvider
-	    	.theme('docs-dark', 'default')
-	    	.primaryPalette('yellow')
-	    	.dark()
-    		.foregroundPalette['3'] = 'yellow';
+	    	.theme('greenMaterial')
+    		.primaryPalette('green')
+    		.accentPalette('orange');
+
+    	// Red
+    	$mdThemingProvider
+	    	.theme('redMaterial')
+    		.primaryPalette('red')
+    		.accentPalette('amber');
+
+    	// Orange
+    	$mdThemingProvider
+	    	.theme('orangeMaterial')
+    		.primaryPalette('orange')
+    		.accentPalette('indigo');
+
 	}
 
 })();

@@ -31,12 +31,10 @@
 	<md-toolbar class="md-hue-2">
 		<div class="md-toolbar-tools">
 
-		    <!-- Divider -->
-		    <!-- <md-divider class="menu-vertical-divider"></md-divider> -->
-
 		    <!-- Arquivo -->
 	        <md-menu md-offset="20 60">
-		      <md-button class="md-icon-button" ng-click="app.openMenu($mdOpenMenu, $event)">
+		      <md-button aria-label="Arquivo" class="md-icon-button" ng-click="app.openMenu($mdOpenMenu, $event)">
+		        <md-tooltip>Arquivo</md-tooltip>
 		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/file.svg"></md-icon>
 		      </md-button>
 			      <md-menu-content width="4">
@@ -61,7 +59,7 @@
 			          </md-button>
 			        </md-menu-item>
 			        <md-menu-item>
-			          <md-button id="menuSaveBtn" ng-disabled="app.enableSaveBtn()" ng-click="app.saveScene()">
+			          <md-button id="menuSaveBtn" ng-disabled="app.disableSaveBtn()" ng-click="app.saveScene()">
 			          	<div layout="row" layout-align="start center" flex>
 						  <md-icon md-svg-icon="./../assets/icons/content-save.svg"></md-icon>
 						  Salvar Cena
@@ -71,7 +69,7 @@
 			          </md-button>
 			        </md-menu-item>
 			        <md-menu-item>
-			          <md-button id="menuSaveAsBtn" ng-disabled="app.enableSaveBtn()" ng-click="app.saveSceneAs()">
+			          <md-button id="menuSaveAsBtn" ng-disabled="app.disableSaveBtn()" ng-click="app.saveSceneAs()">
 			            <md-icon md-svg-icon="./../assets/icons/content-save-all.svg"></md-icon>
 			            Salvar Como...
 			          </md-button>
@@ -88,7 +86,7 @@
 			          </md-button>
 			        </md-menu-item>
 			        <md-menu-item>
-			          <md-button ng-click="" ng-disabled="app.enableSaveBtn()">
+			          <md-button ng-click="" ng-disabled="app.disableSaveBtn()">
 			          	<div layout="row" layout-align="start center" flex>
 				            <md-icon md-svg-icon="./../assets/icons/file-export.svg"></md-icon>
 				            Exportar...
@@ -104,7 +102,7 @@
 				            <md-icon md-svg-icon="./../assets/icons/exit-to-app.svg"></md-icon>
 				            Sair
 				            <span flex></span>
-							<p>Ctrl + Q</p>
+							<p>Ctrl + W</p>
 			            </div>
 			          </md-button>
 			        </md-menu-item>
@@ -113,7 +111,8 @@
 
 		    <!-- Editar -->
 		    <md-menu md-offset="0 50">
-		      <md-button class="md-icon-button" ng-click="app.openMenu($mdOpenMenu, $event)">
+		      <md-button aria-label="Editar" class="md-icon-button" ng-click="app.openMenu($mdOpenMenu, $event)">
+		        <md-tooltip>Editar</md-tooltip>
 		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/pencil.svg"></md-icon>
 		      </md-button>
 		      	<md-menu-content width="4">
@@ -181,12 +180,139 @@
 		      	</md-menu-content>
 		    </md-menu>
 
-		    <!-- Ajuda -->
-		    <md-menu md-offset="0 50">
+		    <!-- Configurações -->
+		    <md-menu md-offset="0 50" style="margin-right: 120px">
+		    	<md-button aria-label="Configurações" class="md-icon-button" ng-click="app.openMenu($mdOpenMenu, $event)">
+			        <md-tooltip>Configuracoes</md-tooltip>
+			        <md-icon md-menu-origin md-svg-icon="./../assets/icons/settings.svg"></md-icon>
+		        </md-button>
+		        <md-menu-content width="3">
+		      		<md-menu-item>
+			          <md-button ng-click="">
+			            <md-icon md-svg-icon="./../assets/icons/brush.svg"></md-icon>
+			            Tema
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-item>
+			          <md-button ng-click="">
+			            <md-icon md-svg-icon="./../assets/icons/translate.svg"></md-icon>
+			            Idioma
+			          </md-button>
+			        </md-menu-item>
+		    </md-menu>
+
+		    <!-- Format Text Buttons -->
+
+		    <md-button aria-label="Negrito" class="md-icon-button" ng-disabled="app.disableFormatText()" ng-click="">
+		        <md-tooltip>Negrito</md-tooltip>
+		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/format-bold.svg"></md-icon>
+		    </md-button>
+
+		    <md-button aria-label="Italico" class="md-icon-button" ng-disabled="app.disableFormatText()" ng-click="">
+		        <md-tooltip>Italico</md-tooltip>
+		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/format-italic.svg"></md-icon>
+		    </md-button>
+
+		    <md-button aria-label="Underline" class="md-icon-button" ng-disabled="app.disableFormatText()" ng-click="">
+		    	<md-tooltip>Sublinhado</md-tooltip>
+		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/format-underline.svg"></md-icon>
+		    </md-button>
+
+		    <!-- Divider -->
+		    <md-divider class="menu-vertical-divider"></md-divider>
+
+		    <!-- Format Align Buttons -->
+
+		    <md-button aria-label="Alinhar Esquerda" class="md-icon-button" ng-disabled="app.disableFormatText()" ng-click="">
+		    	<md-tooltip>Alinhar Texto a Esquerda</md-tooltip>
+		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/format-align-left.svg"></md-icon>
+		    </md-button>
+
+		    <md-button aria-label="Alinhar Centro" class="md-icon-button" ng-disabled="app.disableFormatText()" ng-click="">
+		    	<md-tooltip>Alinhar Texto ao Centro</md-tooltip>
+		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/format-align-center.svg"></md-icon>
+		    </md-button>
+
+		    <md-button aria-label="Alinhar Direita" class="md-icon-button" ng-disabled="app.disableFormatText()" ng-click="">
+		    	<md-tooltip>Alinhar Texto a Direita</md-tooltip>
+		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/format-align-right.svg"></md-icon>
+		    </md-button>
+
+		    <md-button aria-label="Justificar" class="md-icon-button" ng-disabled="app.disableFormatText()" ng-click="">
+		    	<md-tooltip>Justificar Texto</md-tooltip>
+		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/format-align-justify.svg"></md-icon>
+		    </md-button>
+
+		    <!-- Divider -->
+		    <md-divider class="menu-vertical-divider"></md-divider>
+
+		    <!-- Format Horizontal Align Buttons -->
+
+		    <md-button aria-label="Horizontal Align Left" class="md-icon-button" ng-disabled="app.disableFormatLayout()" ng-click="">
+		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/format-horizontal-align-left.svg"></md-icon>
+		    </md-button>
+
+		    <md-button aria-label="Horizontal Align Center" class="md-icon-button" ng-disabled="app.disableFormatLayout()" ng-click="">
+		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/format-horizontal-align-center.svg"></md-icon>
+		    </md-button>
+
+		    <md-button aria-label="Horizontal Align Right" class="md-icon-button" ng-disabled="app.disableFormatLayout()" ng-click="">
+		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/format-horizontal-align-right.svg"></md-icon>
+		    </md-button>
+
+		    <!-- Divider -->
+		    <md-divider class="menu-vertical-divider"></md-divider>
+
+		    <!-- Format Vertical Align Buttons -->
+
+		    <md-button aria-label="Vertical Align Left" class="md-icon-button" ng-disabled="app.disableFormatLayout()" ng-click="">
+		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/format-vertical-align-bottom.svg"></md-icon>
+		    </md-button>
+
+		    <md-button aria-label="Vertical Align Center" class="md-icon-button" ng-disabled="app.disableFormatLayout()" ng-click="">
+		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/format-vertical-align-center.svg"></md-icon>
+		    </md-button>
+
+		    <md-button aria-label="Vertical Align Top" class="md-icon-button" ng-disabled="app.disableFormatLayout()" ng-click="">
+		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/format-vertical-align-top.svg"></md-icon>
+		    </md-button>
+
+		    <!-- Espaço Em Branco -->
+	        <span flex></span>
+
+	        <!-- Change Design/Code button -->
+
+	        <md-button class="md-icon-button" ng-click="app.toggleLayout()">
+	        	<md-tooltip>Design/Codigo</md-tooltip>
+		        <md-icon ng-hide="app.changeLayoutIcon()" md-menu-origin md-svg-icon="./../assets/icons/code-tags.svg"></md-icon>
+		        <md-icon ng-hide="!app.changeLayoutIcon()" md-menu-origin md-svg-icon="./../assets/icons/lightbulb-on.svg"></md-icon>
+		    </md-button>
+
+		    <!-- Change Android/iOS Layout Button -->
+
+		    <md-button id="platformButton" class="md-icon-button" ng-click="app.togglePlatform()">
+		    	<md-tooltip>Android/iOS</md-tooltip>
+		        <md-icon ng-hide="app.changePlatformIcon()" id="platformIconAndroid" md-menu-origin md-svg-icon="./../assets/icons/android.svg"></md-icon>
+		        <md-icon ng-hide="!app.changePlatformIcon()" id="platformIconIOS" md-menu-origin md-svg-icon="./../assets/icons/apple-ios.svg"></md-icon>
+		    </md-button>
+
+	        <!-- Ajuda -->
+		    <md-menu md-offset="0 50" style="margin-left: 50px">
 		      <md-button class="md-icon-button" ng-click="app.openMenu($mdOpenMenu, $event)">
+		      	<md-tooltip>Ajuda</md-tooltip>
 		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/help-circle.svg"></md-icon>
 		      </md-button>
-		      <md-menu-content width="3">
+		      <md-menu-content width="4">
+		      	<md-menu-item>
+			          <md-button ng-click="app.showCommandsDialog()">
+			          	<div layout="row" layout-align="start center" flex>
+				            <md-icon md-svg-icon="./../assets/icons/book-open-page-variant.svg"></md-icon>
+				            Lista de Comandos
+				            <span flex></span>
+							<p>F12</p>
+			            </div>
+			          </md-button>
+			        </md-menu-item>
 		      	<md-menu-item>
 		          <md-button id="menuSaveAsBtn" ng-click="">
 			            <md-icon md-svg-icon="./../assets/icons/file-document.svg"></md-icon>
@@ -201,14 +327,6 @@
 			    </md-menu-item>
 		      </md-content>
 		    </md-menu>
-
-		    <!-- Espaço Em Branco -->
-	        <span flex></span>
-
-	        <!-- Outros Botões -->
-			<md-button class="md-icon-button">
-	          <md-icon md-svg-icon="./../assets/icons/dots-vertical.svg"></md-icon>
-	        </md-button>
         </div>
 
     </md-toolbar>
@@ -224,6 +342,7 @@
 		<div class="md-toolbar-tools">
 			<h1 class="md-toolbar-tools">Componentes</h1>
 			<md-button class="md-icon-button">
+				<md-tooltip>Pesquisar</md-tooltip>
 	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/magnify.svg"></md-icon>
 		    </md-button>
 	    </div>
@@ -289,6 +408,7 @@
 		<div class="md-toolbar-tools">
 			<h1 class="md-toolbar-tools">API's</h1>
 			<md-button class="md-icon-button">
+				<md-tooltip>Pesquisar</md-tooltip>
 	        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/magnify.svg"></md-icon>
 		    </md-button>
 	    </div>
@@ -319,6 +439,38 @@
           <md-icon md-svg-src="./../assets/icons/bell.svg" class="s24"></md-icon>
           <div class="md-list-item-text" layout="column">
             <h3>Notificacao</h3>
+          </div>
+        </md-list-item>
+
+        <!-- Firebase -->
+        <md-list-item class="md-2-line" ng-click="null">
+          <md-icon md-svg-src="./../assets/icons/fire.svg" class="s24"></md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>Firebase</h3>
+          </div>
+        </md-list-item>
+
+        <!-- Facebook Login -->
+        <md-list-item class="md-2-line" ng-click="null">
+          <md-icon md-svg-src="./../assets/icons/facebook.svg" class="s24"></md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>Facebook Login</h3>
+          </div>
+        </md-list-item>
+
+        <!-- Twitter Login -->
+        <md-list-item class="md-2-line" ng-click="null">
+          <md-icon md-svg-src="./../assets/icons/twitter.svg" class="s24"></md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>Twitter Login</h3>
+          </div>
+        </md-list-item>
+
+        <!-- Google Login -->
+        <md-list-item class="md-2-line" ng-click="null">
+          <md-icon md-svg-src="./../assets/icons/google-plus.svg" class="s24"></md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>Google Login</h3>
           </div>
         </md-list-item>
 
