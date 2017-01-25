@@ -352,7 +352,7 @@
         <md-list flex>
 
         <!-- Texto -->
-        <md-list-item class="md-2-line" ng-click="null">
+        <md-list-item class="md-2-line" ng-click="app.createText('Diego')">
           <md-icon md-svg-src="./../assets/icons/format-color-text.svg" class="s24"></md-icon>
           <div class="md-list-item-text" layout="column">
             <h3>Texto</h3>
@@ -512,6 +512,11 @@
       </md-toolbar>
 
       <md-content layout-margin style="height: 50%;">
+
+      	<p>Background Color</p>
+
+      	<div md-color-picker ng-model="valueObj"></div>
+
         <p>
           This sidenav is not showing any backdrop, where users can click on it, to close the sidenav.
         </p>
