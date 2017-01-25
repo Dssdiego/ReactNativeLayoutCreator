@@ -11,9 +11,12 @@
 
     // Jetpack - File API Manager
     var jetpack = require('fs-jetpack');
+    var template = jetpack.cwd('app/templates');
     var destCode = jetpack.dir('export/code');
     var destImages = jetpack.dir('export/images');
     var temp = jetpack.dir('temp', { empty: true });
+
+    var contNewScene = 0;
 
 	angular
 		.module('app', ['ngMaterial', 'ngAnimate'])
@@ -104,11 +107,29 @@
       // Scene
     	this.newScene = function(title, view) {
 		     var saveBtn = document.getElementById("menuSaveBtn");
+         var defaultView = jetpack.read(template.path('rnlDefault.js'));
+         var templatePath = template.path('');
 
     		 view = view || title + " Content View";
     		 tabs.push({ title: title, content: view, disabled: false});
     		
     	   saveBtn.ngDisabled = "false";
+
+         console.log('contNewScene: ' + contNewScene);
+
+         // Criação de Arquivos
+         if (contNewScene == 0){
+           temp.write('' + title + '.js', defaultView);
+           temp.write('' + title + '.rnl', 'path: \'' + templatePath + '\'\ntitle: \'' + title + '\'');
+         }
+         else{
+           temp.write('' + title + '_' + contNewScene + '.js', defaultView);
+           temp.write('' + title + '_' + contNewScene + '.rnl', 'path: \'' + templatePath + '\'\ntitle: \'' + title + '_' + contNewScene + '\'');
+         }
+
+         // template.copy('rnlDefault.js', temp.path('Sem Titulo.js'));
+
+         contNewScene = contNewScene + 1;
     	}
 
     	this.openScene = function() {
@@ -148,8 +169,9 @@
 
       // Component Creation
       this.createText = function(content) {
-        console.log('Entrou createText');
-        temp.write('Sem Titulo.rnl', content);
+        
+        var leitura = jetpack.read(temp.path('Sem Titulo.js'));
+        console.log('leitura: ' + leitura);
       }
 
 	}
