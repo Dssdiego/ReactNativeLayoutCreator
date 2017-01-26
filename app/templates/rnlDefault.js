@@ -10,7 +10,8 @@ import {
 class Default extends Component {
   render() {
     return (
-      <View />
+      <View>
+      </View>
     );
   }
 }

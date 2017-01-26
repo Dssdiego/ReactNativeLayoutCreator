@@ -20,8 +20,7 @@
 
 	angular
 		.module('app', ['ngMaterial', 'ngAnimate'])
-		.controller('AppController', ['$scope', 'logger', AppController])
-    .controller('ComponentController', ['$scope', 'logger', ComponentController])
+		.controller('AppController', ['$scope', 'logger', AppController]);
 
 	function AppController($scope, logger) {
 
@@ -39,8 +38,12 @@
 	    });
 
 	    this.removeTab = function(tab) {
-	    	var index = tabs.indexOf(tab);
-      		tabs.splice(index, 1);
+        var inputLayoutTitle = document.getElementById("inputLayoutTitle");
+        var index = tabs.indexOf(tab);
+        
+        inputLayoutTitle.value = null;
+	    	
+        tabs.splice(index, 1);
 	    }
 
       // Disable Buttons
@@ -110,6 +113,10 @@
          var defaultView = jetpack.read(template.path('rnlDefault.js'));
          var templatePath = template.path('');
 
+         var inputLayoutTitle = document.getElementById("inputLayoutTitle");
+
+         inputLayoutTitle.value = null;
+
     		 view = view || title + " Content View";
     		 tabs.push({ title: title, content: view, disabled: false});
     		
@@ -174,10 +181,10 @@
         console.log('leitura: ' + leitura);
       }
 
+      this.setLayoutTitle = function(title) {
+        tabs[$scope.selectedIndex].title = title;
+      }
+
 	}
-
-  function ComponentController($scope, logger) {
-
-  }
 	
 })();

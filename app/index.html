@@ -511,15 +511,19 @@
         <h1 class="md-toolbar-tools">Layout</h1>
       </md-toolbar>
 
-      <md-content layout-margin style="height: 50%;">
+      <md-content layout-margin style="height: 50%">
 
-      	<p>Background Color</p>
+      	<span></span>
 
-      	<div md-color-picker ng-model="valueObj"></div>
+      	<!-- Título do Layout -->
+        <md-input-container class="md-icon-float md-block">
+	      <label>Titulo do Layout</label>
+	      <md-icon md-svg-src="./../assets/icons/format-title.svg"></md-icon>
+	      <input id="inputLayoutTitle" ng-disabled="app.disableSaveBtn()" ng-model="changeTitle" type="text" ng-change="app.setLayoutTitle(changeTitle)">
+	    </md-input-container>
 
-        <p>
-          This sidenav is not showing any backdrop, where users can click on it, to close the sidenav.
-        </p>
+      	<!-- <div md-color-picker ng-model="valueObj"></div> -->
+
       </md-content>
 
       <!-- Propriedades -->
