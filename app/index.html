@@ -17,6 +17,10 @@
 	<script type="text/javascript" src="scripts/config.js"></script>
 	<script type="text/javascript" src="scripts/components/todoList/todoListDirective.js"></script>
 
+	<!-- Color Picker -->
+	<script type="text/javascript" src="./../assets/color-picker/colorPicker.js"></script>
+	<link rel="stylesheet" type="text/css" href="./../assets/color-picker/colorPickerStyle.css">
+
 	<!-- TODO: Adicionar Suporte à Língua PT-BR -->
 
 	<!--Include live reloading-->
@@ -517,12 +521,15 @@
 
       	<!-- Título do Layout -->
         <md-input-container class="md-icon-float md-block">
-	      <label>Titulo do Layout</label>
+	      <label>Titulo</label>
 	      <md-icon md-svg-src="./../assets/icons/format-title.svg"></md-icon>
 	      <input id="inputLayoutTitle" ng-disabled="app.disableSaveBtn()" ng-model="changeTitle" type="text" ng-change="app.setLayoutTitle(changeTitle)">
 	    </md-input-container>
 
-      	<!-- <div md-color-picker ng-model="valueObj"></div> -->
+      	<div layout="row">
+      		<color-picker color="colorPickerMainColor" options="colorPickerOptions" on-color-changed="colorPickerChanged(newColor, oldColor)"></color-picker>
+      		<p class="md-caption" style="margin-left: 10px">Cor de Fundo</p>
+      	</div>
 
       </md-content>
 
