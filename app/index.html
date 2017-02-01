@@ -485,24 +485,30 @@
     </md-sidenav>
 
 
-    <!-- Canvas de Design -->
+    <!-- Canvas de Desenho -->
     <md-content flex layout-padding>
 
 	  	<!-- Área de TABS -->
-	    <md-content class="md-padding">
-		    <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
-		      <md-tab ng-repeat="tab in tabs"
-		              ng-disabled="tab.disabled"
-		              label="{{tab.title}}">
-			  		  <md-tab-body>
-				  		  <md-button class="md-icon-button" ng-click="app.removeTab( tab )">
-					        <md-icon md-menu-origin md-svg-icon="./../assets/icons/close.svg"></md-icon>
-					      </md-button>
-						  <p flex>Voce criou uma nova cena, parabens!</p>
-					  </md-tab-body>
-		      </md-tab>
-		    </md-tabs>
-		</md-content>
+	    <md-tabs md-selected="selectedIndex" flex layout="column" layout-fill md-border-bottom md-autoselect >
+	      <md-tab ng-repeat="tab in tabs"
+	              ng-disabled="tab.disabled"
+	              label="{{tab.title}}" flex layout="column">
+		  		  <md-tab-body>
+		  		  	  <div style="margin-top: 20px;" center>
+		  		  	  	
+				      	<md-button class="md-icon-button" ng-click="app.removeTab( tab )">
+				        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/close.svg"></md-icon>
+				      	</md-button>
+				      	<div class="outsideWrapper">
+						    <div class="insideWrapper">
+						        <img src="./../assets/images/android-mockup.png" class="coveredImage">
+						        <canvas id="androidCanvas" class="coveringCanvas"></canvas>
+						    </div>
+						</div>
+					  </div>
+				  </md-tab-body>
+	      </md-tab>
+	    </md-tabs>
 
     </md-content>
 

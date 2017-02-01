@@ -40,6 +40,9 @@
 
     $scope.colorPickerChanged = function(newColor, oldColor) {
         console.log('from ', oldColor, ' to ', newColor);
+        var canvas = document.getElementById("androidCanvas");
+
+        canvas.style.background = newColor;
     }
 
 		// Tabs do Canvas de Desenho
