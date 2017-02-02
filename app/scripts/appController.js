@@ -18,6 +18,28 @@
 
     var contNewScene = 0;
 
+    var matColors = {
+      red        : '#e51c23',
+      pink       : '#E91E63',
+      purple     : '#9C27B0',
+      deepPurple : '#673AB7',
+      indigo     : '#3F51B5',
+      blue       : '#2196F3',
+      lightBlue  : '#03A9F4',
+      cyan       : '#00BCD4',
+      teal       : '#009688',
+      green      : '#4CAF50',
+      lightGreen : '#8BC34A',
+      lime       : '#CDDC39',
+      yellow     : '#FFEB3B',
+      amber      : '#FFC107',
+      orange     : '#FF9800',
+      deepOrange : '#FF5722',
+      brown      : '#795548',
+      grey       : '#9E9E9E',
+      blueGrey   : '#607D8B'
+    };
+
 	angular
 		.module('app', ['ngMaterial', 'ngAnimate', 'tb-color-picker'])
 		.controller('AppController', ['$scope', 'logger', AppController]);
@@ -26,21 +48,23 @@
 
     // Color Picker
     $scope.colorPickerOptions = [
-          'transparent','#e51c23', 
-          '#E91E63', '#9C27B0', 
-          '#673AB7', '#3F51B5', 
-          '#2196F3', '#03A9F4',
-          '#00BCD4', '#009688',
-          '#4CAF50', '#8BC34A',
-          '#CDDC39', '#FFEB3B',
-          '#FFC107', '#FF9800',
-          '#FF5722', '#795548',
-          '#9E9E9E', '#607D8B'];
+      'transparent',        matColors.red,
+      matColors.pink,       matColors.purple,
+      matColors.deepPurple, matColors.indigo,
+      matColors.blue,       matColors.lightBlue,
+      matColors.cyan,       matColors.teal,
+      matColors.green,      matColors.lightGreen,
+      matColors.lime,       matColors.yellow,
+      matColors.amber,      matColors.orange,
+      matColors.deepOrange, matColors.brown,
+      matColors.grey,       matColors.blueGrey
+    ];
     $scope.colorPickerMainColor = '#e51c23';
 
     $scope.colorPickerChanged = function(newColor, oldColor) {
         console.log('from ', oldColor, ' to ', newColor);
-        var canvas = document.getElementById("androidCanvas");
+
+        var canvas = document.getElementById("androidCanvas");        
 
         canvas.style.background = newColor;
     }
@@ -205,6 +229,32 @@
       this.setLayoutTitle = function(title) {
         tabs[$scope.selectedIndex].title = title;
       }
+
+      // Canvas
+      this.drawOnCanvas = function(component) {
+
+        var canvas = document.getElementById("androidCanvas");
+
+        switch(component) {
+            case 'status-bar':
+                if (canvas.getContext) {
+                  var ctx = canvas.getContext('2d');
+
+                  ctx.fillStyle = matColors.teal;
+                  ctx.fillRect(0,0,300,4);
+                }
+                break;
+            default:
+                console.log('Entrou no default');
+        }
+      }
+
+      this.enableGridCanvas = function(visible) {
+        var gridCanvas = document.getElementById("gridCanvas");
+
+        gridCanvas.style.visibility = (visible ? 'hidden' : 'visible');
+      }
+      
 
 	}
 	

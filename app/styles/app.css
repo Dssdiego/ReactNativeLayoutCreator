@@ -50,3 +50,11 @@ body {
   left:98px;
   background-color: rgba(255,0,0,.1);
 }
+
+.gridOnCanvas { 
+  width:502px; 
+  height:900px; 
+  position:absolute; 
+  top:224px; 
+  left:118px;
+}
