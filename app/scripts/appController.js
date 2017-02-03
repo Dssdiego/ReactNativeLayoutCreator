@@ -42,11 +42,13 @@
 
 	angular
 		.module('app', ['ngMaterial', 'ngAnimate', 'tb-color-picker'])
-		.controller('AppController', ['$scope', 'logger', AppController]);
+		.controller('AppController', ['$scope', 'logger', AppController])
+    .controller('InternalGridController', ['$scope', 'logger', InternalGridController])
+    .controller('ExternalGridController', ['$scope', 'logger', ExternalGridController]);
 
 	function AppController($scope, logger) {
 
-    // Color Picker
+    // Color Pickers
     $scope.colorPickerOptions = [
       'transparent',        matColors.red,
       matColors.pink,       matColors.purple,
@@ -59,7 +61,7 @@
       matColors.deepOrange, matColors.brown,
       matColors.grey,       matColors.blueGrey
     ];
-    $scope.colorPickerMainColor = '#e51c23';
+    $scope.colorPickerMainColor = matColors.red;
 
     $scope.colorPickerChanged = function(newColor, oldColor) {
         console.log('from ', oldColor, ' to ', newColor);
@@ -249,13 +251,64 @@
         }
       }
 
+      // Grid Canvas
       this.enableGridCanvas = function(visible) {
         var gridCanvas = document.getElementById("gridCanvas");
 
         gridCanvas.style.visibility = (visible ? 'hidden' : 'visible');
       }
-      
+
+      $scope.gridSlider = {
+        altura: 100,
+        largura: 100
+      }     
+
+      this.isGridVisible = function() {
+
+        var gridCanvas = document.getElementById("gridCanvas");
+
+        if (gridCanvas.style.visibility == 'hidden')
+          return true;
+        else
+          return false;
+      }
 
 	}
+
+  function InternalGridController($scope, logger) {
+
+    $scope.gridColorOptions = [
+      'dimgrey',           matColors.red,
+      matColors.blue,      matColors.lime,
+      matColors.yellow,    matColors.orange,
+      matColors.lightBlue,
+    ];
+
+    $scope.internalGridColorChanged = function(newColor, oldColor) {
+
+      var internalGrid = document.getElementById("internalGrid");
+
+      internalGrid.style.stroke = newColor;
+    }
+
+  }
+
+  function ExternalGridController($scope, logger) {
+
+    $scope.gridColorOptions = [
+      'dimgrey',           matColors.red,
+      matColors.blue,      matColors.lime,
+      matColors.yellow,    matColors.orange,
+      matColors.lightBlue,
+    ];
+
+    $scope.externalGridColorChanged = function(newColor, oldColor) {
+    
+        var externalGrid = document.getElementById("externalGrid");
+
+        externalGrid.style.stroke = newColor;
+    }
+
+  }
 	
 })();

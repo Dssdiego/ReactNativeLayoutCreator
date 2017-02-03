@@ -14,6 +14,7 @@
 
 	<script type="text/javascript" src="scripts/index.js"></script>
 	<script type="text/javascript" src="scripts/appController.js"></script>
+	<!-- <script type="text/javascript" src="scripts/gridController.js"></script> -->
 	<script type="text/javascript" src="scripts/config.js"></script>
 	<script type="text/javascript" src="scripts/components/todoList/todoListDirective.js"></script>
 
@@ -563,11 +564,11 @@
 						    <svg id="gridCanvas" class="gridOnCanvas">
 							  <defs>
 							    <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
-							      <path d="M 10 0 L 0 0 0 10" fill="none" stroke="dimgrey" stroke-width="0.5"/>
+							      <path id="internalGrid" d="M 10 0 L 0 0 0 10" fill="none" stroke="dimgrey" stroke-width="0.5"/>
 							    </pattern>
 							    <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
 							      <rect width="100" height="100" fill="url(#smallGrid)"/>
-							      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="dimgrey" stroke-width="1"/>
+							      <path id="externalGrid" d="M 100 0 L 0 0 0 100" fill="none" stroke="dimgrey" stroke-width="1"/>
 							    </pattern>
 							  </defs>
 							  <rect width="100%" height="100%" fill="url(#grid)" />
@@ -587,7 +588,7 @@
                 md-whiteframe="2" md-is-locked-open="true">
 
       <md-toolbar>
-        <h1 class="md-toolbar-tools">Layout</h1>
+        <h1 class="md-toolbar-tools">Propriedades de Layout</h1>
       </md-toolbar>
 
       <md-content layout-margin style="height: 50%">
@@ -601,20 +602,52 @@
 	      <input id="inputLayoutTitle" ng-disabled="app.disableSaveBtn()" ng-model="changeTitle" type="text" ng-change="app.setLayoutTitle(changeTitle)">
 	    </md-input-container>
 
-	    <md-checkbox ng-disabled="app.disableSaveBtn()" aria-label="Canvas Grid" ng-model="chk.gridCanvas" style="margin-left: 14px" ng-click="app.enableGridCanvas(chk.gridCanvas)" ng-init="chk.gridCanvas=true">
-            Grid
-        </md-checkbox>
-
-      	<div layout="row">
-      		<color-picker color="colorPickerMainColor" options="colorPickerOptions" on-color-changed="colorPickerChanged(newColor, oldColor)"></color-picker>
+      	<div layout="row" id="divColorPicker">
+      		<color-picker id="backgroundColorPicker" color="colorPickerMainColor" options="colorPickerOptions" on-color-changed="colorPickerChanged(newColor, oldColor)"></color-picker>
       		<p class="md-caption" style="margin-left: 10px">Cor de Fundo</p>
       	</div>
+
+      	<md-subheader class="md-accent">Grid</md-subheader>
+
+	    <md-checkbox ng-disabled="app.disableSaveBtn()" aria-label="Canvas Grid" ng-model="chk.gridCanvas" style="margin-left: 24px" ng-click="app.enableGridCanvas(chk.gridCanvas)" ng-init="chk.gridCanvas=true">
+            Visibilidade
+        </md-checkbox>
+
+        <div layout="row" ng-hide="app.isGridVisible()" ng-controller="InternalGridController as internalGrid" style="margin-left: 20px">
+      		<color-picker id="internalGridColorPicker" color="'dimgrey'" options="gridColorOptions" on-color-changed="internalGridColorChanged(newColor, oldColor)"></color-picker>
+      		<p class="md-caption" style="margin-left: 10px">Cor Interna</p>
+      	</div>
+
+      	<div layout="row" ng-hide="app.isGridVisible()" ng-controller="ExternalGridController as externalGrid" style="margin-left: 20px">
+      		<color-picker id="externalGridColorPicker" color="'dimgrey'" options="gridColorOptions" on-color-changed="externalGridColorChanged(newColor, oldColor)"></color-picker>
+      		<p class="md-caption" style="margin-left: 10px">Cor Externa</p>
+      	</div>
+
+      	<md-slider-container ng-hide="app.isGridVisible()" ng-disabled="app.disableSaveBtn()" style="margin-left: 28px">
+	      <span>A</span>
+	      <md-slider flex min="0" max="100" ng-model="gridSlider.altura" id="altura-slider">
+	      </md-slider>
+	      <md-input-container>
+	        <input flex type="number" ng-model="gridSlider.altura" aria-controls="altura-slider">
+	      </md-input-container>
+	    </md-slider-container>
+
+	    <md-slider-container ng-hide="app.isGridVisible()" ng-disabled="app.disableSaveBtn()" style="margin-left: 28px">
+	    	<span>L</span>
+		    <md-slider flex min="0" max="100" ng-model="gridSlider.largura" id="largura-slider">
+		    </md-slider>
+		    <md-input-container>
+		    	<input flex type="number" ng-model="gridSlider.largura" aria-controls="largura-slider">
+		    </md-input-container>
+	    </md-slider-container>
+
+      	
 
       </md-content>
 
       <!-- Propriedades -->
       <md-toolbar>
-        <h1 class="md-toolbar-tools">Propriedades</h1>
+        <h1 class="md-toolbar-tools">Propriedades do Componente</h1>
       </md-toolbar>
 
       <md-content layout-margin style="height: 50%;">
