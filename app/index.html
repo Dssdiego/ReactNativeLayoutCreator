@@ -22,6 +22,9 @@
 	<script type="text/javascript" src="./../assets/color-picker/colorPicker.js"></script>
 	<link rel="stylesheet" type="text/css" href="./../assets/color-picker/colorPickerStyle.css">
 
+	<!-- Chronicle -->
+	<script type="text/javascript" src="./../bower_components/chronicle/chronicle.js"></script>
+
 	<!-- TODO: Adicionar Suporte à Língua PT-BR -->
 
 	<!--Include live reloading-->
@@ -122,7 +125,7 @@
 		      </md-button>
 		      	<md-menu-content width="4">
 		      		<md-menu-item>
-			          <md-button ng-click="">
+			          <md-button ng-click="app.undo()">
 			          	<div layout="row" layout-align="start center" flex>
 				            <md-icon md-svg-icon="./../assets/icons/undo.svg"></md-icon>
 				            Undo
@@ -132,7 +135,7 @@
 			          </md-button>
 			        </md-menu-item>
 			        <md-menu-item>
-			          <md-button ng-click="">
+			          <md-button ng-click="app.redo()">
 			          	<div layout="row" layout-align="start center" flex>
 				            <md-icon md-svg-icon="./../assets/icons/redo.svg"></md-icon>
 				            Redo
@@ -360,7 +363,7 @@
         <md-list flex>
 
 	        <!-- Status Bar -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.drawOnCanvas('status-bar')">
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('status-bar')">
 	          <md-icon md-svg-src="./../assets/icons/page-layout-header.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3>Status Bar</h3>
@@ -420,7 +423,7 @@
         <md-list flex>
 
         	<!-- Texto -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.createText('Diego')">
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('text')">
 	          <md-icon md-svg-src="./../assets/icons/format-text.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3>Texto</h3>
@@ -452,7 +455,7 @@
 	        </md-list-item>
 
 	        <!-- FAB -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.createText('Diego')">
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('fab')">
 	          <md-icon md-svg-src="./../assets/icons/plus-circle.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3>FAB</h3>
@@ -558,7 +561,7 @@
 				      	<div class="outsideWrapper">
 						    <div class="insideWrapper">
 						        <img src="./../assets/images/android-mockup.png" class="coveredImage">
-						        <canvas id="androidCanvas" class="coveringCanvas"></canvas>
+						        <canvas id="androidCanvas" class="coveringCanvas" width="500" height="900"></canvas>
 						    </div>
 						    <!-- Grid -->
 						    <svg id="gridCanvas" class="gridOnCanvas">

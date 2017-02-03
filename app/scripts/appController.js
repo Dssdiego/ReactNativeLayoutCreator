@@ -41,12 +41,12 @@
     };
 
 	angular
-		.module('app', ['ngMaterial', 'ngAnimate', 'tb-color-picker'])
+		.module('app', ['ngMaterial', 'ngAnimate', 'tb-color-picker', 'Chronicle'])
 		.controller('AppController', ['$scope', 'logger', AppController])
     .controller('InternalGridController', ['$scope', 'logger', InternalGridController])
     .controller('ExternalGridController', ['$scope', 'logger', ExternalGridController]);
 
-	function AppController($scope, logger) {
+	function AppController($scope, logger, Chronicle) {
 
     // Color Pickers
     $scope.colorPickerOptions = [
@@ -184,6 +184,9 @@
          // template.copy('rnlDefault.js', temp.path('Sem Titulo.js'));
 
          contNewScene = contNewScene + 1;
+
+         var canvas = document.getElementById("androidCanvas");
+         $scope.chronicle = Chronicle.record('canvas', canvas);
     	}
 
     	this.openScene = function() {
@@ -232,19 +235,91 @@
         tabs[$scope.selectedIndex].title = title;
       }
 
+      this.placeComponent = function(component) {
+        this.drawOnCanvas(component);
+        // createCompProps(component);
+        this.createReactNativeComp(component);
+      }
+
       // Canvas
       this.drawOnCanvas = function(component) {
 
         var canvas = document.getElementById("androidCanvas");
 
+        // createCompProps(component);
+
         switch(component) {
             case 'status-bar':
                 if (canvas.getContext) {
                   var ctx = canvas.getContext('2d');
+                  var imgHora = new Image();
 
+                  imgHora.onload = function() {
+                    ctx.drawImage(imgHora, 400, 0);
+                  }
+                  imgHora.src = "./../assets/icons/wifi.svg";
+
+                  ctx.globalAlpha = 0.4;
                   ctx.fillStyle = matColors.teal;
-                  ctx.fillRect(0,0,300,4);
+                  ctx.fillRect(0,0,canvas.width,20);
+                  ctx.globalAlpha = 1;
+
+                  ctx.font = "16px Roboto Regular";
+                  ctx.fillStyle = "white";
+                  ctx.fillText("12:30", 455, 15);
                 }
+                break;
+            case 'text':
+                if (canvas.getContext) {
+                  var ctx = canvas.getContext('2d');
+
+                  ctx.font = "26px Roboto Regular";
+                  ctx.fillStyle = "black";
+                  ctx.fillText("Texto", 220, 450);
+                }
+                break;
+            case 'fab':
+                if (canvas.getContext) {
+                  var ctx = canvas.getContext('2d');
+
+                  var X = 435;
+                  var Y = 835;
+                  var radius = 35;
+
+                  ctx.beginPath();
+                  ctx.arc(X, Y, radius, 0, 2 * Math.PI, false);
+                  ctx.fillStyle = matColors.pink;
+                  ctx.fill();
+                  ctx.lineWidth = 2;
+                  ctx.strokeStyle = 'black';
+                  ctx.stroke();
+                }
+                break;
+            default:
+                console.log('Entrou no default');
+        }
+      }
+
+      this.createCompProps = function(component){
+        switch(component) {
+            case 'status-bar':
+                
+                break;
+            default:
+                console.log('Entrou no default');
+        }
+      }
+
+      this.createReactNativeComp = function(component) {
+        switch(component) {
+            case 'text':
+                var leitura = jetpack.read(temp.path('Sem Titulo.js'));
+                console.log('leitura Antes: ' + leitura);
+                var search = leitura.search('<View>');
+                var res = leitura.replace('<View>','<View>\n<Text>Texto</Text>')
+                console.log('search: ' + search);
+                console.log('leitura Depois: ' + res);
+                jetpack.write(temp.path('Sem Titulo.js'), res);
                 break;
             default:
                 console.log('Entrou no default');
@@ -271,6 +346,15 @@
           return true;
         else
           return false;
+      }
+
+      // Chronicle
+      this.undo = function() {
+        $scope.chronicle.undo();
+      }
+
+      this.redo = function() {
+        $scope.chronicle.redo();
       }
 
 	}
