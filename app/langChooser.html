@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+<meta charset="utf-8"/>
 <head>
-  <title>Lista de Comandos</title>
+  <title>Lang Chooser</title>
 
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
   <link rel="stylesheet" type="text/css" href="./node_modules/angular-material/angular-material.css">
@@ -24,7 +25,9 @@
   <!-- Chronicle -->
   <script type="text/javascript" src="./../bower_components/chronicle/chronicle.js"></script>
 
-  <!-- TODO: Adicionar Suporte à Língua PT-BR -->
+  <!-- Suporte à Diferentes Línguas -->
+  <script type="text/javascript" src="./../bower_components/angular-translate/angular-translate.min.js"></script>
+  <script type="text/javascript" src="./../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
 
   <!--Include live reloading-->
   <script src="http://localhost:35729/livereload.js"></script>
@@ -56,10 +59,10 @@
 
   <p>Tema:</p>
 
-   <md-select ng-model="colors" placeholder="Escolha">
-      <md-option value="red" ng-click="app.changeTheme('redMaterial')">Red</md-option>
-      <md-option value="green" ng-click="app.changeTheme('greenMaterial')">Green</md-option>
-      <md-option value="orange" ng-click="app.changeTheme('orangeMaterial')">Orange</md-option>
+   <md-select ng-model="lang" placeholder="Escolha">
+      <md-option value="en" ng-click="app.changeLanguage('en')" translate="LANG_EN"></md-option>
+      <md-option value="pt-br" ng-click="app.changeLanguage('pt-br')" translate="LANG_PT-BR"></md-option>
+      <md-option value="fr" ng-click="app.changeLanguage('fr')" translate="LANG_FR"></md-option>
    </md-select>
 
   <!-- $mdThemingProvider.setDefaultTheme('altTheme'); -->

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{lang}}">
+<meta charset="utf-8"/>
 <head>
 	<title>React Native Layout Creator</title>
 
@@ -25,7 +26,9 @@
 	<!-- Chronicle -->
 	<script type="text/javascript" src="./../bower_components/chronicle/chronicle.js"></script>
 
-	<!-- TODO: Adicionar Suporte à Língua PT-BR -->
+	<!-- Suporte à Diferentes Línguas -->
+	<script type="text/javascript" src="./../bower_components/angular-translate/angular-translate.js"></script>
+	<script type="text/javascript" src="./../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
 
 	<!--Include live reloading-->
 	<script src="http://localhost:35729/livereload.js"></script>
@@ -42,7 +45,7 @@
 		    <!-- Arquivo -->
 	        <md-menu md-offset="20 60">
 		      <md-button aria-label="Arquivo" class="md-icon-button" ng-click="app.openMenu($mdOpenMenu, $event)">
-		        <md-tooltip>Arquivo</md-tooltip>
+		        <md-tooltip><p class="tooltip" translate="SUP_MENU_FILE"></p></md-tooltip>
 		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/file.svg"></md-icon>
 		      </md-button>
 			      <md-menu-content width="4">
@@ -50,7 +53,7 @@
 			          <md-button ng-click="app.newScene('Sem Titulo', ' ')">
 			          	<div layout="row" layout-align="start center" flex>
 			            	<md-icon md-svg-icon="./../assets/icons/plus.svg" md-menu-align-target></md-icon>
-			            	Nova Cena
+			            	<p translate="SUP_MENU_NEW_SCENE"></p>
 			            	<span flex></span>
 							<p>Ctrl + N</p>
 			            </div>
@@ -60,7 +63,7 @@
 			          <md-button ng-click="app.openScene()">
 			          	<div layout="row" layout-align="start center" flex>
 				            <md-icon md-svg-icon="./../assets/icons/folder.svg"></md-icon>
-				            Abrir Cena
+				            <p translate="SUP_MENU_OPEN_SCENE"></p>
 				            <span flex></span>
 							<p>Ctrl + O</p>
 			            </div>
@@ -70,7 +73,7 @@
 			          <md-button id="menuSaveBtn" ng-disabled="app.disableSaveBtn()" ng-click="app.saveScene()">
 			          	<div layout="row" layout-align="start center" flex>
 						  <md-icon md-svg-icon="./../assets/icons/content-save.svg"></md-icon>
-						  Salvar Cena
+						  <p translate="SUP_MENU_SAVE_SCENE"></p>
 						  <span flex></span>
 						  <p>Ctrl + S</p>
 						</div>		            
@@ -79,7 +82,7 @@
 			        <md-menu-item>
 			          <md-button id="menuSaveAsBtn" ng-disabled="app.disableSaveBtn()" ng-click="app.saveSceneAs()">
 			            <md-icon md-svg-icon="./../assets/icons/content-save-all.svg"></md-icon>
-			            Salvar Como...
+			            <p translate="SUP_MENU_SAVE_SCENE_AS"></p>
 			          </md-button>
 			        </md-menu-item>
 			        <md-menu-divider></md-menu-divider>
@@ -87,7 +90,7 @@
 			          <md-button ng-click="">
 			          	<div layout="row" layout-align="start center" flex>
 				            <md-icon md-svg-icon="./../assets/icons/file-import.svg"></md-icon>
-				            Importar...
+				            <p translate="SUP_MENU_IMPORT"></p>
 				            <span flex></span>
 							<p>Ctrl + I</p>
 			            </div>
@@ -97,7 +100,7 @@
 			          <md-button ng-click="" ng-disabled="app.disableSaveBtn()">
 			          	<div layout="row" layout-align="start center" flex>
 				            <md-icon md-svg-icon="./../assets/icons/file-export.svg"></md-icon>
-				            Exportar...
+				            <p translate="SUP_MENU_EXPORT"></p>
 				            <span flex></span>
 							<p>Ctrl + E</p>
 			            </div>
@@ -108,7 +111,7 @@
 			          <md-button ng-click="app.exitApp($event)">
 			          	<div layout="row" layout-align="start center" flex>
 				            <md-icon md-svg-icon="./../assets/icons/exit-to-app.svg"></md-icon>
-				            Sair
+				            <p translate="SUP_MENU_QUIT"></p>
 				            <span flex></span>
 							<p>Ctrl + W</p>
 			            </div>
@@ -120,7 +123,7 @@
 		    <!-- Editar -->
 		    <md-menu md-offset="0 50">
 		      <md-button aria-label="Editar" class="md-icon-button" ng-click="app.openMenu($mdOpenMenu, $event)">
-		        <md-tooltip>Editar</md-tooltip>
+		        <md-tooltip><p class="tooltip" translate="SUP_MENU_EDIT"></p></md-tooltip>
 		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/pencil.svg"></md-icon>
 		      </md-button>
 		      	<md-menu-content width="4">
@@ -128,7 +131,7 @@
 			          <md-button ng-click="app.undo()">
 			          	<div layout="row" layout-align="start center" flex>
 				            <md-icon md-svg-icon="./../assets/icons/undo.svg"></md-icon>
-				            Undo
+				            <p translate="SUP_MENU_UNDO"></p>
 				            <span flex></span>
 							<p>Ctrl + Z</p>
 			            </div>
@@ -138,7 +141,7 @@
 			          <md-button ng-click="app.redo()">
 			          	<div layout="row" layout-align="start center" flex>
 				            <md-icon md-svg-icon="./../assets/icons/redo.svg"></md-icon>
-				            Redo
+				            <p translate="SUP_MENU_REDO"></p>
 				            <span flex></span>
 							<p>Ctrl + Shift + Z</p>
 			            </div>
@@ -149,7 +152,7 @@
 			          <md-button ng-click="">
 			          	<div layout="row" layout-align="start center" flex>
 				            <md-icon md-svg-icon="./../assets/icons/content-cut.svg"></md-icon>
-				            Cortar
+				            <p translate="SUP_MENU_CUT"></p>
 				            <span flex></span>
 							<p>Ctrl + X</p>
 			            </div>
@@ -159,7 +162,7 @@
 			          <md-button ng-click="">
 			          	<div layout="row" layout-align="start center" flex>
 				            <md-icon md-svg-icon="./../assets/icons/content-copy.svg"></md-icon>
-				            Copiar
+				            <p translate="SUP_MENU_COPY"></p>
 				            <span flex></span>
 							<p>Ctrl + C</p>
 			            </div>
@@ -169,7 +172,7 @@
 			          <md-button ng-click="">
 			          	<div layout="row" layout-align="start center" flex>
 				            <md-icon md-svg-icon="./../assets/icons/content-paste.svg"></md-icon>
-				            Colar
+				            <p translate="SUP_MENU_PASTE"></p>
 				            <span flex></span>
 							<p>Ctrl + V</p>
 			            </div>
@@ -179,7 +182,7 @@
 			          <md-button ng-click="">
 			          	<div layout="row" layout-align="start center" flex>
 				            <md-icon md-svg-icon="./../assets/icons/select-all.svg"></md-icon>
-				            Selecionar Tudo
+				            <p translate="SUP_MENU_SELECT_ALL"></p>
 				            <span flex></span>
 							<p>Ctrl + A</p>
 			            </div>
@@ -189,25 +192,27 @@
 		    </md-menu>
 
 		    <!-- Configurações -->
-		    <md-menu md-offset="0 50" style="margin-right: 120px">
-		    	<md-button aria-label="Configurações" class="md-icon-button" ng-click="app.openMenu($mdOpenMenu, $event)">
-			        <md-tooltip>Configuracoes</md-tooltip>
-			        <md-icon md-menu-origin md-svg-icon="./../assets/icons/settings.svg"></md-icon>
-		        </md-button>
-		        <md-menu-content width="3">
-		      		<md-menu-item>
-			          <md-button ng-click="">
-			            <md-icon md-svg-icon="./../assets/icons/brush.svg"></md-icon>
-			            Tema
-			          </md-button>
-			        </md-menu-item>
-			        <md-menu-item>
-			          <md-button ng-click="">
-			            <md-icon md-svg-icon="./../assets/icons/translate.svg"></md-icon>
-			            Idioma
-			          </md-button>
-			        </md-menu-item>
-		    </md-menu>
+		    <div ng-controller="WindowController as window">
+			    <md-menu md-offset="0 50" style="margin-right: 120px">
+			    	<md-button aria-label="Configurações" class="md-icon-button" ng-click="app.openMenu($mdOpenMenu, $event)">
+				        <md-tooltip>Configurações</md-tooltip>
+				        <md-icon md-menu-origin md-svg-icon="./../assets/icons/settings.svg"></md-icon>
+			        </md-button>
+			        <md-menu-content width="3">
+			      		<md-menu-item>
+				          <md-button ng-click="">
+				            <md-icon md-svg-icon="./../assets/icons/brush.svg"></md-icon>
+				            Tema
+				          </md-button>
+				        </md-menu-item>
+				        <md-menu-item>
+				          <md-button ng-click="window.langChooser()">
+				            <md-icon md-svg-icon="./../assets/icons/translate.svg"></md-icon>
+				            Idioma
+				          </md-button>
+				        </md-menu-item>
+			    </md-menu>
+		    </div>
 
 		    <!-- Format Text Buttons -->
 
@@ -291,7 +296,7 @@
 	        <!-- Change Design/Code button -->
 
 	        <md-button class="md-icon-button" ng-click="app.toggleLayout()">
-	        	<md-tooltip>Design/Codigo</md-tooltip>
+	        	<md-tooltip>Design/Código</md-tooltip>
 		        <md-icon ng-hide="app.changeLayoutIcon()" md-menu-origin md-svg-icon="./../assets/icons/code-tags.svg"></md-icon>
 		        <md-icon ng-hide="!app.changeLayoutIcon()" md-menu-origin md-svg-icon="./../assets/icons/lightbulb-on.svg"></md-icon>
 		    </md-button>
@@ -324,7 +329,7 @@
 		      	<md-menu-item>
 		          <md-button id="menuSaveAsBtn" ng-click="">
 			            <md-icon md-svg-icon="./../assets/icons/file-document.svg"></md-icon>
-			            Documentacao
+			            Documentação
 			      </md-button>
 			    </md-menu-item>
 			    <md-menu-item>
@@ -426,7 +431,7 @@
 	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('text')">
 	          <md-icon md-svg-src="./../assets/icons/format-text.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
-	            <h3>Texto</h3>
+	            <h3 translate="COMPONENT_TEXT"></h3>
 	          </div>
 	        </md-list-item>
 
@@ -434,7 +439,7 @@
 	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.createText('Diego')">
 	          <md-icon md-svg-src="./../assets/icons/shape-square-plus.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
-	            <h3>Botao</h3>
+	            <h3 translate="COMPONENT_BUTTON"></h3>
 	          </div>
 	        </md-list-item>
 
@@ -442,7 +447,7 @@
 	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="null">
 	          <md-icon md-svg-src="./../assets/icons/image.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
-	            <h3>Imagem</h3>
+	            <h3 translate="COMPONENT_IMG"></h3>
 	          </div>
 	        </md-list-item>
 
@@ -485,7 +490,7 @@
         <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="null">
           <md-icon md-svg-src="./../assets/icons/information.svg" class="s24"></md-icon>
           <div class="md-list-item-text" layout="column">
-            <h3>Toast</h3>
+            <h3 translate="TOAST_API"></h3>
           </div>
         </md-list-item>
 
@@ -493,7 +498,7 @@
         <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="null">
           <md-icon md-svg-src="./../assets/icons/vibrate.svg" class="s24"></md-icon>
           <div class="md-list-item-text" layout="column">
-            <h3>Vibracao</h3>
+            <h3 translate="VIBRATION_API"></h3>
           </div>
         </md-list-item>
 
@@ -501,7 +506,7 @@
         <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="null">
           <md-icon md-svg-src="./../assets/icons/bell.svg" class="s24"></md-icon>
           <div class="md-list-item-text" layout="column">
-            <h3>Notificacao</h3>
+            <h3 translate="NOTIFICATION_API"></h3>
           </div>
         </md-list-item>
 
@@ -509,7 +514,7 @@
         <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="null">
           <md-icon md-svg-src="./../assets/icons/fire.svg" class="s24"></md-icon>
           <div class="md-list-item-text" layout="column">
-            <h3>Firebase</h3>
+            <h3 translate="FIREBASE_API"></h3>
           </div>
         </md-list-item>
 
@@ -517,7 +522,7 @@
         <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="null">
           <md-icon md-svg-src="./../assets/icons/facebook.svg" class="s24"></md-icon>
           <div class="md-list-item-text" layout="column">
-            <h3>Facebook Login</h3>
+            <h3 translate="FACE_LOGIN_API"></h3>
           </div>
         </md-list-item>
 
@@ -525,7 +530,7 @@
         <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="null">
           <md-icon md-svg-src="./../assets/icons/twitter.svg" class="s24"></md-icon>
           <div class="md-list-item-text" layout="column">
-            <h3>Twitter Login</h3>
+            <h3 translate="TWITTER_LOGIN_API"></h3>
           </div>
         </md-list-item>
 
@@ -533,7 +538,7 @@
         <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="null">
           <md-icon md-svg-src="./../assets/icons/google-plus.svg" class="s24"></md-icon>
           <div class="md-list-item-text" layout="column">
-            <h3>Google Login</h3>
+            <h3 translate="GOOGLE_LOGIN_API"></h3>
           </div>
         </md-list-item>
 
@@ -600,7 +605,7 @@
 
       	<!-- Título do Layout -->
         <md-input-container class="md-icon-float md-block">
-	      <label>Titulo</label>
+	      <label>Título</label>
 	      <md-icon md-svg-src="./../assets/icons/format-title.svg"></md-icon>
 	      <input id="inputLayoutTitle" ng-disabled="app.disableSaveBtn()" ng-model="changeTitle" type="text" ng-change="app.setLayoutTitle(changeTitle)">
 	    </md-input-container>

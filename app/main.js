@@ -8,7 +8,7 @@ const {BrowserWindow} = electron;
 const {autoUpdater} = electron;
 const {ipcMain} = electron;
 const os = require('os');
-const path = require('path')
+const path = require('path');
 
 // Atalhos de Teclado
 const electronLocalshortcut = require('electron-localshortcut');

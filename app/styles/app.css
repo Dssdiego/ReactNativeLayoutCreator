@@ -20,6 +20,10 @@ body {
   color: #999999;
 }
 
+.tooltip {
+  margin-top: 0px;
+}
+
 .outsideWrapper { 
   width:700px; 
   height:1213px; 

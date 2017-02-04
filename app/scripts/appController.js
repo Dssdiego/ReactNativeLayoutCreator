@@ -1,10 +1,12 @@
 (function(){
 
 	const electron = require('electron');
+  const path = require('path');
 
     const remote = electron.remote;
     const dialog = remote.dialog;
     const app = remote.app;
+    const BrowserWindow = remote.BrowserWindow;
 
     var platform = 'android';
     var layout = 'code';
@@ -40,13 +42,37 @@
       blueGrey   : '#607D8B'
     };
 
+    const RNCompDefault = {
+      view: '<View>',
+      styles: 'const styles = StyleSheet.create({',
+      import: 'import {'
+    }
+
+    const RNComp = {
+      textImport: RNCompDefault.import + '\n  Text,',
+      text: RNCompDefault.view + '\n        <Text style={styles.text}>Texto</Text>',
+      textProps: RNCompDefault.styles + '\ntext: {\n' + '  color: \'black\',' +
+                 '\n  textAlignVertical: \'center\'' + '\n}',
+
+    }
+
 	angular
-		.module('app', ['ngMaterial', 'ngAnimate', 'tb-color-picker', 'Chronicle'])
+		.module('app', ['ngMaterial', 'ngAnimate', 'tb-color-picker', 'Chronicle', 'pascalprecht.translate'])
 		.controller('AppController', ['$scope', 'logger', AppController])
     .controller('InternalGridController', ['$scope', 'logger', InternalGridController])
-    .controller('ExternalGridController', ['$scope', 'logger', ExternalGridController]);
+    .controller('ExternalGridController', ['$scope', 'logger', ExternalGridController])
+    .controller('WindowController', ['$scope', 'logger', WindowController])
+    .controller('LanguageSwitchController', ['$scope', '$translate', LanguageSwitchController]);
 
-	function AppController($scope, logger, Chronicle) {
+    function LanguageSwitchController($scope, $translate) {
+      $scope.changeLanguage = function(langKey) {
+        $translate.use(langKey);
+      };
+    }
+
+	function AppController($scope, logger, Chronicle, $translate) {
+
+    $scope.lang = 'pt-br';
 
     // Color Pickers
     $scope.colorPickerOptions = [
@@ -314,12 +340,14 @@
         switch(component) {
             case 'text':
                 var leitura = jetpack.read(temp.path('Sem Titulo.js'));
-                console.log('leitura Antes: ' + leitura);
-                var search = leitura.search('<View>');
-                var res = leitura.replace('<View>','<View>\n<Text>Texto</Text>')
-                console.log('search: ' + search);
-                console.log('leitura Depois: ' + res);
-                jetpack.write(temp.path('Sem Titulo.js'), res);
+                var res = leitura.replace(RNCompDefault.view,RNComp.text);
+
+                if (res.search('Text,') < 0)
+                  res = res.replace(RNCompDefault.import,RNComp.textImport);
+
+                res = res.replace(RNCompDefault.styles,RNComp.textProps);
+
+                jetpack.writeAsync(temp.path('Sem Titulo.js'), res);
                 break;
             default:
                 console.log('Entrou no default');
@@ -357,6 +385,13 @@
         $scope.chronicle.redo();
       }
 
+      // Idioma
+      this.changeLanguage = function(langKey)  {
+        console.log('Mudando idioma para: ' + langKey);
+        console.log($translate);
+        $translate.use(langKey);
+      }
+
 	}
 
   function InternalGridController($scope, logger) {
@@ -391,6 +426,35 @@
         var externalGrid = document.getElementById("externalGrid");
 
         externalGrid.style.stroke = newColor;
+    }
+
+  }
+
+  function WindowController($scope, logger) {
+
+    this.langChooser = function() {
+      console.log('Entrou langChooser()');
+
+      const modalPath = path.join('file://', __dirname, '/langChooser.html');
+      console.log(modalPath);
+      let commandList = new BrowserWindow({
+          name: "Lang Chooser",
+          width: 320,
+          height: 240,
+          toolbar: true,
+          frame: false
+      });
+      commandList.on('close', function () { win = null });
+      commandList.loadURL(modalPath);
+      commandList.show(); 
+    }
+
+    this.themeChooser = function() {
+      // TODO
+    }
+
+    this.commandList = function() {
+      // TODO
     }
 
   }
