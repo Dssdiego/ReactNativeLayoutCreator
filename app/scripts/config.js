@@ -51,6 +51,11 @@
                 "LANG_EN": "Inglês",
                 "LANG_PT-BR": "Português",
                 "LANG_FR": "Francês",
+                "LANG_CHOOSER": "Seletor de Idioma",
+                "LANG": "Idioma:",
+
+                "THEME_CHOOSER": "Seletor de Tema",
+                "THEME": "Tema:",
             })
             .translations('en', {
                 "SUP_MENU_FILE": "File",
@@ -96,6 +101,11 @@
                 "LANG_EN": "English",
                 "LANG_PT-BR": "Portuguese",
                 "LANG_FR": "French",
+                "LANG_CHOOSER": "Language Selector",
+                "LANG": "Language:",
+
+                "THEME_CHOOSER": "Theme Selector",
+                "THEME": "Theme:",
             })
             // .useStaticFilesLoader({
             //    prefix: './translations/locale-pt-br',

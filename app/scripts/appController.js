@@ -239,11 +239,6 @@
     	  	app.quit();
       }
 
-      // Dialogs
-      this.showCommandsDialog = function() {
-        // TODO: Mostar nova janela com todos os atalhos disponíveis
-      }
-
       // Windows
       this.closeWindow = function() {
           var window = remote.getCurrentWindow();
@@ -263,16 +258,14 @@
 
       this.placeComponent = function(component) {
         this.drawOnCanvas(component);
-        // createCompProps(component);
-        this.createReactNativeComp(component);
+        this.createCompProps(component);
+        this.createRNComp(component);
       }
 
       // Canvas
       this.drawOnCanvas = function(component) {
 
         var canvas = document.getElementById("androidCanvas");
-
-        // createCompProps(component);
 
         switch(component) {
             case 'status-bar':
@@ -328,15 +321,21 @@
 
       this.createCompProps = function(component){
         switch(component) {
-            case 'status-bar':
-                
-                break;
-            default:
-                console.log('Entrou no default');
+          case 'status-bar':
+              
+              break;
+          case 'text':
+              // console.log('Entrou createCompProps');
+              // var textPropsList = document.getElementById("textProps");
+              // console.log(textPropsList);
+              // textPropsList.style.visibility = true;
+              break;
+          default:
+              console.log('Entrou no default');
         }
       }
 
-      this.createReactNativeComp = function(component) {
+      this.createRNComp = function(component) {
         switch(component) {
             case 'text':
                 var leitura = jetpack.read(temp.path('Sem Titulo.js'));
@@ -352,6 +351,13 @@
             default:
                 console.log('Entrou no default');
         }
+      }
+
+      this.showComponentProps = function(component, visibility) {
+        if (visibility == true)
+          return component.style.visibility = visibility;
+        else
+          return component.style.visibility = !visibility;
       }
 
       // Grid Canvas
@@ -433,28 +439,48 @@
   function WindowController($scope, logger) {
 
     this.langChooser = function() {
-      console.log('Entrou langChooser()');
-
       const modalPath = path.join('file://', __dirname, '/langChooser.html');
       console.log(modalPath);
-      let commandList = new BrowserWindow({
+      let w_langChooser = new BrowserWindow({
           name: "Lang Chooser",
           width: 320,
           height: 240,
           toolbar: true,
           frame: false
       });
-      commandList.on('close', function () { win = null });
-      commandList.loadURL(modalPath);
-      commandList.show(); 
+      w_langChooser.on('close', function () { win = null });
+      w_langChooser.loadURL(modalPath);
+      w_langChooser.show(); 
     }
 
     this.themeChooser = function() {
-      // TODO
+      const modalPath = path.join('file://', __dirname, '/themeChooser.html');
+      console.log(modalPath);
+      let w_themeChooser = new BrowserWindow({
+          name: "Theme Chooser",
+          width: 320,
+          height: 240,
+          toolbar: true,
+          frame: false
+      });
+      w_themeChooser.on('close', function () { win = null });
+      w_themeChooser.loadURL(modalPath);
+      w_themeChooser.show(); 
     }
 
     this.commandList = function() {
-      // TODO
+      const modalPath = path.join('file://', __dirname, '/commandList.html');
+      console.log(modalPath);
+      let w_commandList = new BrowserWindow({
+          name: "Command List",
+          width: 320,
+          height: 240,
+          toolbar: true,
+          frame: false
+      });
+      w_commandList.on('close', function () { win = null });
+      w_commandList.loadURL(modalPath);
+      w_commandList.show();
     }
 
   }

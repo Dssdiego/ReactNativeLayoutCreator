@@ -200,15 +200,15 @@
 			        </md-button>
 			        <md-menu-content width="3">
 			      		<md-menu-item>
-				          <md-button ng-click="">
+				          <md-button ng-click="window.themeChooser()">
 				            <md-icon md-svg-icon="./../assets/icons/brush.svg"></md-icon>
-				            Tema
+				            Tema  <!-- <p translate="SUP_MENU_SETTINGS_THEME"></p> -->
 				          </md-button>
 				        </md-menu-item>
 				        <md-menu-item>
 				          <md-button ng-click="window.langChooser()">
 				            <md-icon md-svg-icon="./../assets/icons/translate.svg"></md-icon>
-				            Idioma
+				            Idioma  <!-- <p translate="SUP_MENU_SETTINGS_LANGUAGE"></p> -->
 				          </md-button>
 				        </md-menu-item>
 			    </md-menu>
@@ -310,36 +310,38 @@
 		    </md-button>
 
 	        <!-- Ajuda -->
-		    <md-menu md-offset="0 50" style="margin-left: 50px">
-		      <md-button class="md-icon-button" ng-click="app.openMenu($mdOpenMenu, $event)">
-		      	<md-tooltip>Ajuda</md-tooltip>
-		        <md-icon md-menu-origin md-svg-icon="./../assets/icons/help-circle.svg"></md-icon>
-		      </md-button>
-		      <md-menu-content width="4">
-		      	<md-menu-item>
-			          <md-button ng-click="app.showCommandsDialog()">
-			          	<div layout="row" layout-align="start center" flex>
-				            <md-icon md-svg-icon="./../assets/icons/book-open-page-variant.svg"></md-icon>
-				            Lista de Comandos
-				            <span flex></span>
-							<p>F12</p>
-			            </div>
-			          </md-button>
-			        </md-menu-item>
-		      	<md-menu-item>
-		          <md-button id="menuSaveAsBtn" ng-click="">
-			            <md-icon md-svg-icon="./../assets/icons/file-document.svg"></md-icon>
-			            Documentação
+	        <div ng-controller="WindowController as window">
+			    <md-menu md-offset="0 50" style="margin-left: 50px">
+			      <md-button class="md-icon-button" ng-click="app.openMenu($mdOpenMenu, $event)">
+			      	<md-tooltip>Ajuda</md-tooltip>
+			        <md-icon md-menu-origin md-svg-icon="./../assets/icons/help-circle.svg"></md-icon>
 			      </md-button>
-			    </md-menu-item>
-			    <md-menu-item>
-		          <md-button id="menuSaveAsBtn" ng-click="">
-			            <md-icon md-svg-icon="./../assets/icons/information.svg"></md-icon>
-			            Sobre o app...
-			      </md-button>
-			    </md-menu-item>
-		      </md-content>
-		    </md-menu>
+			      <md-menu-content width="4">
+			      	<md-menu-item>
+				          <md-button ng-click="window.commandList()">
+				          	<div layout="row" layout-align="start center" flex>
+					            <md-icon md-svg-icon="./../assets/icons/book-open-page-variant.svg"></md-icon>
+					            Lista de Comandos
+					            <span flex></span>
+								<p>F12</p>
+				            </div>
+				          </md-button>
+				        </md-menu-item>
+			      	<md-menu-item>
+			          <md-button id="menuSaveAsBtn" ng-click="">
+				            <md-icon md-svg-icon="./../assets/icons/file-document.svg"></md-icon>
+				            Documentação
+				      </md-button>
+				    </md-menu-item>
+				    <md-menu-item>
+			          <md-button id="menuSaveAsBtn" ng-click="">
+				            <md-icon md-svg-icon="./../assets/icons/information.svg"></md-icon>
+				            Sobre o app...
+				      </md-button>
+				    </md-menu-item>
+			      </md-content>
+			    </md-menu>
+		    </div>
         </div>
 
     </md-toolbar>
@@ -659,9 +661,121 @@
       </md-toolbar>
 
       <md-content layout-margin style="height: 50%;">
-        <p>
-          This sidenav is not showing any backdrop, where users can click on it, to close the sidenav.
-        </p>
+
+      	<!-- Text -->
+      	<md-content id="textProps" ng-show="true">
+      		<md-subheader style="padding: 16px;" class="md-accent" translate="COMPONENT_TEXT"></md-subheader>
+		  	<md-list flex>
+		  		<md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-content layout="row" flex>
+		            	<md-icon md-svg-src="./../assets/icons/eye.svg" class="s24"></md-icon>
+			    	    <p style="margin-left: 14px; margin-top: 20px;" flex>accessible</p>
+			    	    <span></span>
+				        <md-switch style="margin-right: 12px;" ng-model="text.accessible" aria-label="accessible"></md-switch>
+						</md-content>
+		        </md-list-item>
+		        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-content layout="row" flex>
+			            <md-icon md-svg-src="./../assets/icons/dots-horizontal.svg" class="s24"></md-icon >
+		            	<md-select style="margin-left: 14px;" ng-model="lang" placeholder="ellipsizeMode" flex>
+					      <md-option value="head" ng-click="">head</md-option>
+					      <md-option value="middle" ng-click="">middle</md-option>
+					      <md-option value="tail" ng-click="">tail</md-option>
+					    </md-select>
+					</md-content>
+		        </md-list-item>
+		  		<md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/format-list-numbers.svg" class="s24"></md-icon>
+			    	    <label>numberOfLines</label>
+				        <input ng-model="user.title">
+				    </md-input-container>
+		        </md-list-item>
+		        <md-list-item style="margin-top: -20px; ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/function.svg" class="s24"></md-icon>
+			    	    <label>onLayout</label>
+				        <input ng-model="user.title">
+				    </md-input-container>
+		        </md-list-item>
+		        <md-list-item style="margin-top: -20px; ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/function.svg" class="s24"></md-icon>
+			    	    <label>onLongPress</label>
+				        <input ng-model="user.title">
+				    </md-input-container>
+		        </md-list-item>
+		        <md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/function.svg" class="s24"></md-icon>
+			    	    <label>onPress</label>
+				        <input ng-model="user.title">
+				    </md-input-container>
+		        </md-list-item>
+		        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-content layout="row" flex>
+		            	<md-icon md-svg-src="./../assets/icons/cursor-pointer.svg" class="s24"></md-icon>
+			    	    <p style="margin-left: 14px; margin-top: 20px;" flex>selectable</p>
+			    	    <span></span>
+				        <md-switch style="margin-right: 12px;" ng-model="text.accessible" aria-label="accessible"></md-switch>
+						</md-content>
+		        </md-list-item>
+		  	</md-list>
+		  	<md-subheader class="md-accent">Style</md-subheader>
+		  	<md-list flex>
+		  		<!-- TODO: Colocar Color Picker -->
+		  		
+		  	</md-list>
+      	</md-content>
+      		<md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/format-font.svg" class="s24"></md-icon>
+		    	    <label>fontFamily</label>
+			        <input ng-model="user.title">
+			    </md-input-container>
+		    </md-list-item>
+		    <md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/format-size.svg" class="s24"></md-icon>
+		    	    <label>fontSize</label>
+			        <input ng-model="user.title">
+			    </md-input-container>
+		    </md-list-item>
+		    <md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+	            <md-content layout="row" flex>
+		            <md-icon md-svg-src="./../assets/icons/font-awesome.svg" class="s24"></md-icon >
+	            	<md-select style="margin-left: 14px; " ng-model="lang" placeholder="fontStyle" flex>
+				      <md-option value="normal" ng-click="">normal</md-option>
+				      <md-option value="italic" ng-click="">italic</md-option>
+				    </md-select>
+				</md-content>
+	        </md-list-item>
+	        <md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+	            <md-content layout="row" flex>
+		            <md-icon md-svg-src="./../assets/icons/weight-kilogram.svg" class="s24"></md-icon >
+	            	<md-select style="margin-left: 14px; " ng-model="lang" placeholder="fontWeight" flex>
+				      <md-option value="normal" ng-click="">normal</md-option>
+				      <md-option value="bold" ng-click="">bold</md-option>
+				      <md-option value="100" ng-click="">100</md-option>
+				      <md-option value="200" ng-click="">200</md-option>
+				      <md-option value="300" ng-click="">300</md-option>
+				      <md-option value="400" ng-click="">400</md-option>
+				      <md-option value="500" ng-click="">500</md-option>
+				      <md-option value="600" ng-click="">600</md-option>
+				      <md-option value="700" ng-click="">700</md-option>
+				      <md-option value="800" ng-click="">800</md-option>
+				      <md-option value="900" ng-click="">900</md-option>
+				    </md-select>
+				</md-content>
+	        </md-list-item>
+	        <md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/format-line-spacing.svg" class="s24"></md-icon>
+		    	    <label>lineHeight</label>
+			        <input ng-model="user.title">
+			    </md-input-container>
+		    </md-list-item>
+		    <!-- Próximo: textAlign -->
       </md-content>
 
       </md-sidenav>

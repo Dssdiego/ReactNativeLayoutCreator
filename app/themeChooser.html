@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Lista de Comandos</title>
+  <title>Theme Chooser</title>
 
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
   <link rel="stylesheet" type="text/css" href="./node_modules/angular-material/angular-material.css">
@@ -24,7 +24,9 @@
   <!-- Chronicle -->
   <script type="text/javascript" src="./../bower_components/chronicle/chronicle.js"></script>
 
-  <!-- TODO: Adicionar Suporte à Língua PT-BR -->
+  <!-- Suporte à Diferentes Línguas -->
+  <script type="text/javascript" src="./../bower_components/angular-translate/angular-translate.js"></script>
+  <script type="text/javascript" src="./../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
 
   <!--Include live reloading-->
   <script src="http://localhost:35729/livereload.js"></script>
@@ -38,7 +40,7 @@
   <md-toolbar class="md-hue-2">
     <div class="md-toolbar-tools">
 
-      <p>Seletor de Tema</p>
+      <p translate="THEME_CHOOSER"></p>
 
       <!-- Espaço Em Branco -->
         <span flex></span>
@@ -54,7 +56,7 @@
 
   <!-- <section layout="row" flex> -->
 
-  <p>Tema:</p>
+  <p translate="THEME"></p>
 
    <md-select ng-model="colors" placeholder="Escolha">
       <md-option value="red" ng-click="app.changeTheme('redMaterial')">Red</md-option>
