@@ -73,6 +73,7 @@
 	function AppController($scope, logger, Chronicle, $translate) {
 
     $scope.lang = 'pt-br';
+    $scope.selectedComp = null;
 
     // Color Pickers
     $scope.colorPickerOptions = [
@@ -245,20 +246,12 @@
           window.close();
       }
 
-      // Component Creation
-      this.createText = function(content) {
-        
-        var leitura = jetpack.read(temp.path('Sem Titulo.js'));
-        console.log('leitura: ' + leitura);
-      }
-
       this.setLayoutTitle = function(title) {
         tabs[$scope.selectedIndex].title = title;
       }
 
       this.placeComponent = function(component) {
         this.drawOnCanvas(component);
-        this.createCompProps(component);
         this.createRNComp(component);
       }
 
@@ -266,72 +259,58 @@
       this.drawOnCanvas = function(component) {
 
         var canvas = document.getElementById("androidCanvas");
+        var ctx = canvas.getContext('2d');
 
-        switch(component) {
+        if (canvas.getContext) {
+
+          switch (component) {
             case 'status-bar':
-                if (canvas.getContext) {
-                  var ctx = canvas.getContext('2d');
-                  var imgHora = new Image();
+              var imgHora = new Image();
 
-                  imgHora.onload = function() {
-                    ctx.drawImage(imgHora, 400, 0);
-                  }
-                  imgHora.src = "./../assets/icons/wifi.svg";
+              imgHora.onload = function() {
+                ctx.drawImage(imgHora, 400, 0);
+              }
+              imgHora.src = "./../assets/icons/wifi.svg";
 
-                  ctx.globalAlpha = 0.4;
-                  ctx.fillStyle = matColors.teal;
-                  ctx.fillRect(0,0,canvas.width,20);
-                  ctx.globalAlpha = 1;
+              ctx.globalAlpha = 0.4;
+              ctx.fillStyle = matColors.teal;
+              ctx.fillRect(0, 0, canvas.width, 20);
+              ctx.globalAlpha = 1;
 
-                  ctx.font = "16px Roboto Regular";
-                  ctx.fillStyle = "white";
-                  ctx.fillText("12:30", 455, 15);
-                }
-                break;
+              ctx.font = "16px Roboto Regular";
+              ctx.fillStyle = "white";
+              ctx.fillText("12:30", 455, 15);
+
+              $scope.selectedComp = 'status-bar';
+              break;
             case 'text':
-                if (canvas.getContext) {
-                  var ctx = canvas.getContext('2d');
+              ctx.font = "26px Roboto Regular";
+              ctx.fillStyle = "black";
+              ctx.fillText("Texto", 220, 450);
 
-                  ctx.font = "26px Roboto Regular";
-                  ctx.fillStyle = "black";
-                  ctx.fillText("Texto", 220, 450);
-                }
-                break;
+              $scope.selectedComp = 'text';
+              break;
+            case 'button':
+              $scope.selectedComp = 'button';
+              break;
             case 'fab':
-                if (canvas.getContext) {
-                  var ctx = canvas.getContext('2d');
+              var X = 435;
+              var Y = 835;
+              var radius = 35;
 
-                  var X = 435;
-                  var Y = 835;
-                  var radius = 35;
+              ctx.beginPath();
+              ctx.arc(X, Y, radius, 0, 2 * Math.PI, false);
+              ctx.fillStyle = matColors.pink;
+              ctx.fill();
+              ctx.lineWidth = 2;
+              ctx.strokeStyle = 'black';
+              ctx.stroke();
 
-                  ctx.beginPath();
-                  ctx.arc(X, Y, radius, 0, 2 * Math.PI, false);
-                  ctx.fillStyle = matColors.pink;
-                  ctx.fill();
-                  ctx.lineWidth = 2;
-                  ctx.strokeStyle = 'black';
-                  ctx.stroke();
-                }
-                break;
+              $scope.selectedComp = 'fab';
+              break;
             default:
-                console.log('Entrou no default');
-        }
-      }
-
-      this.createCompProps = function(component){
-        switch(component) {
-          case 'status-bar':
-              
-              break;
-          case 'text':
-              // console.log('Entrou createCompProps');
-              // var textPropsList = document.getElementById("textProps");
-              // console.log(textPropsList);
-              // textPropsList.style.visibility = true;
-              break;
-          default:
               console.log('Entrou no default');
+          }
         }
       }
 

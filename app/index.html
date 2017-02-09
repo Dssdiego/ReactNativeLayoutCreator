@@ -378,7 +378,7 @@
 	        </md-list-item>
 
 	        <!-- Action Bar -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.createText('Diego')">
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('action-bar')">
 	          <md-icon md-svg-src="./../assets/icons/format-color-text.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3>Action Bar</h3>
@@ -392,7 +392,7 @@
         <md-list flex>
 
         	<!-- Navigation Drawer -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.createText('Diego')">
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('nav-drawer')">
 	          <md-icon md-svg-src="./../assets/icons/page-layout-sidebar-left.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3>Navigation Drawer</h3>
@@ -400,7 +400,7 @@
 	        </md-list-item>
 
 	        <!-- ListView -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="null">
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('list-view')">
 	          <md-icon md-svg-src="./../assets/icons/format-list-bulleted.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3>ListView</h3>
@@ -408,7 +408,7 @@
 	        </md-list-item>
 
 	        <!-- GridView -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="null">
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('grid-view')">
 	          <md-icon md-svg-src="./../assets/icons/view-grid.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3>GridView</h3>
@@ -416,14 +416,52 @@
 	        </md-list-item>
 
 	        <!-- TabView -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="null">
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('tab-view')">
 	          <md-icon md-svg-src="./../assets/icons/tab.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3>TabView</h3>
 	          </div>
 	        </md-list-item>
 
+	        <!-- MapView -->
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('map-view')">
+	          <md-icon md-svg-src="./../assets/icons/google-maps.svg" class="s24"></md-icon>
+	          <div class="md-list-item-text" layout="column">
+	            <h3 translate="COMPONENT_MAP_VIEW"></h3>
+	          </div>
+	        </md-list-item>
+
         </md-list flex>
+
+        <md-subheader class="md-accent">Touchables</md-subheader>
+
+        <md-list flex>
+
+        	<!-- Touchable Highlight -->
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('touch-highlight')">
+	          <md-icon md-svg-src="./../assets/icons/lightbulb-outline.svg" class="s24"></md-icon>
+	          <div class="md-list-item-text" layout="column">
+	            <h3>Highlight</h3>
+	          </div>
+	        </md-list-item>
+
+	        <!-- Touchable Native Feedback -->
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('touch-native-feedback')">
+	          <md-icon md-svg-src="./../assets/icons/cursor-pointer.svg" class="s24"></md-icon>
+	          <div class="md-list-item-text" layout="column">
+	            <h3>Native Feedback</h3>
+	          </div>
+	        </md-list-item>
+
+	        <!-- Touchable Opacity -->
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('touch-opacity')">
+	          <md-icon md-svg-src="./../assets/icons/opacity.svg" class="s24"></md-icon>
+	          <div class="md-list-item-text" layout="column">
+	            <h3>Opacity</h3>
+	          </div>
+	        </md-list-item>
+
+        </md-list>
 
         <md-subheader class="md-accent">Outros</md-subheader>
 
@@ -438,7 +476,7 @@
 	        </md-list-item>
 
 	        <!-- Botão -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.createText('Diego')">
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('button')">
 	          <md-icon md-svg-src="./../assets/icons/shape-square-plus.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3 translate="COMPONENT_BUTTON"></h3>
@@ -446,7 +484,7 @@
 	        </md-list-item>
 
 	        <!-- Imagem -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="null">
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('image')">
 	          <md-icon md-svg-src="./../assets/icons/image.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3 translate="COMPONENT_IMG"></h3>
@@ -454,7 +492,7 @@
 	        </md-list-item>
 
 	        <!-- DatePicker -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="null">
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('date-picker')">
 	          <md-icon md-svg-src="./../assets/icons/calendar-clock.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3>DatePicker</h3>
@@ -466,6 +504,14 @@
 	          <md-icon md-svg-src="./../assets/icons/plus-circle.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3>FAB</h3>
+	          </div>
+	        </md-list-item>
+
+	        <!-- Refresh Control -->
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('refresh-control')">
+	          <md-icon md-svg-src="./../assets/icons/refresh.svg" class="s24"></md-icon>
+	          <div class="md-list-item-text" layout="column">
+	            <h3 translate="COMPONENT_REFRESH_CONTROL"></h3>
 	          </div>
 	        </md-list-item>
 
@@ -598,7 +644,7 @@
                 md-whiteframe="2" md-is-locked-open="true">
 
       <md-toolbar>
-        <h1 class="md-toolbar-tools">Propriedades de Layout</h1>
+        <h1 class="md-toolbar-tools" translate="LAYOUT_PROPS"></h1>
       </md-toolbar>
 
       <md-content layout-margin style="height: 50%">
@@ -655,15 +701,15 @@
 
       </md-content>
 
-      <!-- Propriedades -->
+      <!-- Propriedades do Componente-->
       <md-toolbar>
-        <h1 class="md-toolbar-tools">Propriedades do Componente</h1>
+        <h1 class="md-toolbar-tools" translate="COMPONENT_PROPS"></h1>
       </md-toolbar>
 
       <md-content layout-margin style="height: 50%;">
 
       	<!-- Text -->
-      	<md-content id="textProps" ng-show="true">
+      	<md-content id="textProps" ng-show="selectedComp == 'text'">
       		<md-subheader style="padding: 16px;" class="md-accent" translate="COMPONENT_TEXT"></md-subheader>
 		  	<md-list flex>
 		  		<md-list-item ng-disabled="false" class="md-line" ng-click="">
@@ -724,10 +770,7 @@
 		  	<md-subheader class="md-accent">Style</md-subheader>
 		  	<md-list flex>
 		  		<!-- TODO: Colocar Color Picker -->
-		  		
-		  	</md-list>
-      	</md-content>
-      		<md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+		  		<md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
 	            <md-input-container flex>
 	            	<md-icon md-svg-src="./../assets/icons/format-font.svg" class="s24"></md-icon>
 		    	    <label>fontFamily</label>
@@ -775,7 +818,84 @@
 			        <input ng-model="user.title">
 			    </md-input-container>
 		    </md-list-item>
-		    <!-- Próximo: textAlign -->
+		    <md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+	            <md-content layout="row" flex>
+		            <md-icon md-svg-src="./../assets/icons/format-horizontal-align-center.svg" class="s24"></md-icon >
+	            	<md-select style="margin-left: 14px; " ng-model="lang" placeholder="textAlign" flex>
+				      <md-option value="auto" ng-click="">auto</md-option>
+				      <md-option value="left" ng-click="">left</md-option>
+				      <md-option value="right" ng-click="">right</md-option>
+				      <md-option value="center" ng-click="">center</md-option>
+				      <md-option value="justify" ng-click="">justify</md-option>
+				    </md-select>
+				</md-content>
+	        </md-list-item>
+	        <md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+	            <md-content layout="row" flex>
+		            <md-icon md-svg-src="./../assets/icons/format-paint.svg" class="s24"></md-icon >
+	            	<md-select style="margin-left: 14px; " ng-model="lang" placeholder="textDecorationLine" flex>
+				      <md-option value="none" ng-click="">none</md-option>
+				      <md-option value="underline" ng-click="">underline</md-option>
+				      <md-option value="line-through" ng-click="">line-through</md-option>
+				      <md-option value="underline line-through" ng-click="">underline line-through</md-option>
+				    </md-select>
+				</md-content>
+	        </md-list-item>
+	        <!-- TODO: textShadowColor -->
+	        <!-- TODO: textShadowOffset -->
+	        <md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+	            <md-content layout="row" flex>
+		            <md-icon md-svg-src="./../assets/icons/format-vertical-align-center.svg" class="s24"></md-icon >
+	            	<md-select style="margin-left: 14px; " ng-model="lang" placeholder="textAlignVertical" flex>
+				      <md-option value="auto" ng-click="">auto</md-option>
+				      <md-option value="top" ng-click="">top</md-option>
+				      <md-option value="bottom" ng-click="">bottom</md-option>
+				      <md-option value="center" ng-click="">center</md-option>
+				    </md-select>
+				</md-content>
+	        </md-list-item>
+		  	</md-list>
+      	</md-content>
+      	
+      	<!-- Button -->
+		<md-content id="buttonProps" ng-show="selectedComp == 'button'">
+			<md-subheader style="padding: 16px;" class="md-accent" translate="COMPONENT_BUTTON"></md-subheader>
+		  	<md-list flex>
+		  		<md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/label.svg" class="s24"></md-icon>
+			    	    <label>accessibilityLabel </label>
+				        <input ng-model="user.title">
+				    </md-input-container>
+		        </md-list-item>
+		        <!-- TODO: Add Color Picker -->
+		        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-content layout="row" flex>
+		            	<md-icon md-svg-src="./../assets/icons/eye-off.svg" class="s24"></md-icon>
+			    	    <p style="margin-left: 14px; margin-top: 20px;" flex>disabled</p>
+			    	    <span></span>
+				        <md-switch style="margin-right: 12px;" ng-model="text.accessible" aria-label="accessible"></md-switch>
+						</md-content>
+		        </md-list-item>
+		        <md-list-item style="margin-top: -20px; ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/function.svg" class="s24"></md-icon>
+			    	    <label>onPress</label>
+				        <input ng-model="user.title">
+				    </md-input-container>
+		        </md-list-item>
+		        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/format-title.svg" class="s24"></md-icon>
+			    	    <label>title</label>
+				        <input ng-model="user.title">
+				    </md-input-container>
+		        </md-list-item>
+		  	</md-list>
+		</md-content>
+
+      	<p translate="NO_COMPONENT" ng-show="selectedComp == null"></p>
+
       </md-content>
 
       </md-sidenav>

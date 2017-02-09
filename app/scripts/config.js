@@ -28,6 +28,8 @@
                 "SUP_MENU_PASTE": "Colar",
                 "SUP_MENU_SELECT_ALL": "Selecionar Tudo",
 
+                "LAYOUT_PROPS": "Propriedades de Layout",
+
                 "LAYOUT_TITLE": "Título",
                 "LAYOUT_BACK_COLOR": "Cor de Fundo",
                 "GRID_VISIBILITY": "Visibilidade",
@@ -36,9 +38,13 @@
                 "GRID_HEIGHT": "A",
                 "GRID_WIDTH": "L",
 
+                "COMPONENT_PROPS": "Propriedades do Componente",
+
                 "COMPONENT_TEXT": "Texto",
                 "COMPONENT_BUTTON": "Botão",
                 "COMPONENT_IMG": "Imagem",
+                "COMPONENT_MAP_VIEW": "MapView",
+                "COMPONENT_REFRESH_CONTROL": "Refresh Control",
 
                 "TOAST_API": "Toast",
                 "VIBRATION_API": "Vibração",
@@ -56,6 +62,8 @@
 
                 "THEME_CHOOSER": "Seletor de Tema",
                 "THEME": "Tema:",
+
+                "NO_COMPONENT": "Não há nenhum componente selecionado no momento",
             })
             .translations('en', {
                 "SUP_MENU_FILE": "File",
@@ -78,6 +86,8 @@
                 "SUP_MENU_PASTE": "Paste",
                 "SUP_MENU_SELECT_ALL": "Select All",
 
+                "LAYOUT_PROPS": "Layout Props",
+
                 "LAYOUT_TITLE": "Title",
                 "LAYOUT_BACK_COLOR": "Background Color",
                 "GRID_VISIBILITY": "Visibility",
@@ -86,9 +96,13 @@
                 "GRID_HEIGHT": "H",
                 "GRID_WIDTH": "W",
 
+                "COMPONENT_PROPS": "Props of Component",
+
                 "COMPONENT_TEXT": "Text",
                 "COMPONENT_BUTTON": "Button",
                 "COMPONENT_IMG": "Image",
+                "COMPONENT_MAP_VIEW": "MapView",
+                "COMPONENT_REFRESH_CONTROL": "Refresh Control",
 
                 "TOAST_API": "Toast",
                 "VIBRATION_API": "Vibration",
@@ -106,6 +120,8 @@
 
                 "THEME_CHOOSER": "Theme Selector",
                 "THEME": "Theme:",
+
+                "NO_COMPONENT": "There is no component selected",
             })
             // .useStaticFilesLoader({
             //    prefix: './translations/locale-pt-br',
