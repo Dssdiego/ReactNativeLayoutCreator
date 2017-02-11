@@ -1,0 +1,163 @@
+  	<md-content>
+  		<md-subheader style="padding: 16px;" class="md-accent" translate="COMPONENT_TEXT"></md-subheader>
+  		<div ng-controller="ComponentController as comp">
+		  	<md-list flex>
+		  		<md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/account-card-details.svg" class="s24"></md-icon>
+			    	    <label>ID</label>
+				        <input ng-model="txtComp.ID">
+				    </md-input-container>
+		        </md-list-item>
+			        <md-list-item ng-disabled="false" class="md-line">
+			            <md-input-container flex>
+			            	<md-icon md-svg-src="./../assets/icons/cursor-text.svg" class="s24"></md-icon>
+				    	    <label>Text</label>
+					        <input ng-model="txtComp.Text" ng-change="comp.onChangeText(txtComp.Text)">
+					    </md-input-container>
+			        </md-list-item>
+		  		<md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-content layout="row" flex>
+		            	<md-icon md-svg-src="./../assets/icons/eye.svg" class="s24"></md-icon>
+			    	    <p style="margin-left: 14px; margin-top: 20px;" flex>accessible</p>
+			    	    <span></span>
+				        <md-switch style="margin-right: 12px;" ng-model="text.accessible" aria-label="accessible"></md-switch>
+						</md-content>
+		        </md-list-item>
+		        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-content layout="row" flex>
+			            <md-icon md-svg-src="./../assets/icons/dots-horizontal.svg" class="s24"></md-icon >
+		            	<md-select style="margin-left: 14px;" ng-model="lang" placeholder="ellipsizeMode" flex>
+					      <md-option value="head" ng-click="">head</md-option>
+					      <md-option value="middle" ng-click="">middle</md-option>
+					      <md-option value="tail" ng-click="">tail</md-option>
+					    </md-select>
+					</md-content>
+		        </md-list-item>
+		  		<md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/format-list-numbers.svg" class="s24"></md-icon>
+			    	    <label>numberOfLines</label>
+				        <input ng-model="user.title">
+				    </md-input-container>
+		        </md-list-item>
+		        <md-list-item style="margin-top: -20px; ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/function.svg" class="s24"></md-icon>
+			    	    <label>onLayout</label>
+				        <input ng-model="user.title">
+				    </md-input-container>
+		        </md-list-item>
+		        <md-list-item style="margin-top: -20px; ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/function.svg" class="s24"></md-icon>
+			    	    <label>onLongPress</label>
+				        <input ng-model="user.title">
+				    </md-input-container>
+		        </md-list-item>
+		        <md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/function.svg" class="s24"></md-icon>
+			    	    <label>onPress</label>
+				        <input ng-model="user.title">
+				    </md-input-container>
+		        </md-list-item>
+		        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-content layout="row" flex>
+		            	<md-icon md-svg-src="./../assets/icons/cursor-pointer.svg" class="s24"></md-icon>
+			    	    <p style="margin-left: 14px; margin-top: 20px;" flex>selectable</p>
+			    	    <span></span>
+				        <md-switch style="margin-right: 12px;" ng-model="text.accessible" aria-label="accessible"></md-switch>
+						</md-content>
+		        </md-list-item>
+		  	</md-list>
+	  	</div>
+	  	<md-subheader class="md-accent">Style</md-subheader>
+	  	<md-list flex>
+	  		<!-- TODO: Colocar Color Picker -->
+	  		<md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+            <md-input-container flex>
+            	<md-icon md-svg-src="./../assets/icons/format-font.svg" class="s24"></md-icon>
+	    	    <label>fontFamily</label>
+		        <input ng-model="user.title">
+		    </md-input-container>
+		    </md-list-item>
+		    <md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/format-size.svg" class="s24"></md-icon>
+		    	    <label>fontSize</label>
+			        <input ng-model="user.title">
+			    </md-input-container>
+		    </md-list-item>
+		    <md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+	            <md-content layout="row" flex>
+		            <md-icon md-svg-src="./../assets/icons/font-awesome.svg" class="s24"></md-icon >
+	            	<md-select style="margin-left: 14px; " ng-model="lang" placeholder="fontStyle" flex>
+				      <md-option value="normal" ng-click="">normal</md-option>
+				      <md-option value="italic" ng-click="">italic</md-option>
+				    </md-select>
+				</md-content>
+	        </md-list-item>
+	        <md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+	            <md-content layout="row" flex>
+		            <md-icon md-svg-src="./../assets/icons/weight-kilogram.svg" class="s24"></md-icon >
+	            	<md-select style="margin-left: 14px; " ng-model="lang" placeholder="fontWeight" flex>
+				      <md-option value="normal" ng-click="">normal</md-option>
+				      <md-option value="bold" ng-click="">bold</md-option>
+				      <md-option value="100" ng-click="">100</md-option>
+				      <md-option value="200" ng-click="">200</md-option>
+				      <md-option value="300" ng-click="">300</md-option>
+				      <md-option value="400" ng-click="">400</md-option>
+				      <md-option value="500" ng-click="">500</md-option>
+				      <md-option value="600" ng-click="">600</md-option>
+				      <md-option value="700" ng-click="">700</md-option>
+				      <md-option value="800" ng-click="">800</md-option>
+				      <md-option value="900" ng-click="">900</md-option>
+				    </md-select>
+				</md-content>
+	        </md-list-item>
+	        <md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/format-line-spacing.svg" class="s24"></md-icon>
+		    	    <label>lineHeight</label>
+			        <input ng-model="user.title">
+			    </md-input-container>
+		    </md-list-item>
+		    <md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+	            <md-content layout="row" flex>
+		            <md-icon md-svg-src="./../assets/icons/format-horizontal-align-center.svg" class="s24"></md-icon >
+	            	<md-select style="margin-left: 14px; " ng-model="lang" placeholder="textAlign" flex>
+				      <md-option value="auto" ng-click="">auto</md-option>
+				      <md-option value="left" ng-click="">left</md-option>
+				      <md-option value="right" ng-click="">right</md-option>
+				      <md-option value="center" ng-click="">center</md-option>
+				      <md-option value="justify" ng-click="">justify</md-option>
+				    </md-select>
+				</md-content>
+	        </md-list-item>
+	        <md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+	            <md-content layout="row" flex>
+		            <md-icon md-svg-src="./../assets/icons/format-paint.svg" class="s24"></md-icon >
+	            	<md-select style="margin-left: 14px; " ng-model="lang" placeholder="textDecorationLine" flex>
+				      <md-option value="none" ng-click="">none</md-option>
+				      <md-option value="underline" ng-click="">underline</md-option>
+				      <md-option value="line-through" ng-click="">line-through</md-option>
+				      <md-option value="underline line-through" ng-click="">underline line-through</md-option>
+				    </md-select>
+				</md-content>
+	        </md-list-item>
+	        <!-- TODO: textShadowColor -->
+	        <!-- TODO: textShadowOffset -->
+	        <md-list-item style="margin-top: -20px;" ng-disabled="false" class="md-line" ng-click="">
+	            <md-content layout="row" flex>
+		            <md-icon md-svg-src="./../assets/icons/format-vertical-align-center.svg" class="s24"></md-icon >
+	            	<md-select style="margin-left: 14px; " ng-model="lang" placeholder="textAlignVertical" flex>
+				      <md-option value="auto" ng-click="">auto</md-option>
+				      <md-option value="top" ng-click="">top</md-option>
+				      <md-option value="bottom" ng-click="">bottom</md-option>
+				      <md-option value="center" ng-click="">center</md-option>
+				    </md-select>
+				</md-content>
+	        </md-list-item>
+	  	</md-list>
+  	</md-content>

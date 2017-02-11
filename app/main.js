@@ -116,7 +116,7 @@ app.on('ready', function() {
 
     // Nova Cena
     electronLocalshortcut.register(mainWindow, 'CommandOrControl+N', function () {
-        // TODO: Nova Cena
+    //     // TODO: Nova Cena
     });
 
     // Abrir Cena
@@ -142,17 +142,17 @@ app.on('ready', function() {
         dialog.showSaveDialog(options);
     });
 
-    // Importar
+    // // Importar
     electronLocalshortcut.register(mainWindow, 'CommandOrControl+I', function () {
         // TODO: Importar
     });
 
-    // Exportar
+    // // Exportar
     electronLocalshortcut.register(mainWindow, 'CommandOrControl+E', function () {
         // TODO: Exportar
     });
 
-    // F12 - Lista de Comandos
+    // // F12 - Lista de Comandos
     electronLocalshortcut.register(mainWindow, 'CommandOrControl+F12', function () {
         // FIXME: Implementar atalho como F12 somente
         const modalPath = path.join('file://', __dirname, '/commandList.html')
@@ -168,7 +168,7 @@ app.on('ready', function() {
         commandList.show() 
     });
 
-    // F12 - Escolha de Tema
+    // // F12 - Escolha de Tema
     electronLocalshortcut.register(mainWindow, 'CommandOrControl+Alt+T', function () {
         
         const modalPath = path.join('file://', __dirname, '/themeChooser.html')

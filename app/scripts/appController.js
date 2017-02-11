@@ -58,17 +58,26 @@
 
 	angular
 		.module('app', ['ngMaterial', 'ngAnimate', 'tb-color-picker', 'Chronicle', 'pascalprecht.translate'])
-		.controller('AppController', ['$scope', 'logger', AppController])
+		.controller('AppController', ['$scope', 'logger', 'Chronicle', AppController])
     .controller('InternalGridController', ['$scope', 'logger', InternalGridController])
     .controller('ExternalGridController', ['$scope', 'logger', ExternalGridController])
     .controller('WindowController', ['$scope', 'logger', WindowController])
-    .controller('LanguageSwitchController', ['$scope', '$translate', LanguageSwitchController]);
+    .controller('LanguageSwitchController', ['$scope', '$translate', LanguageSwitchController])
+    .controller('ComponentController', ['$scope', 'logger', ComponentController]);
 
-    function LanguageSwitchController($scope, $translate) {
+  function ComponentController($scope, logger) {
+
+    this.onChangeText = function(p_newText) {
+      console.log('onChangeText: ' + p_newText);
+    }
+
+  }
+
+  function LanguageSwitchController($scope, $translate) {
       $scope.changeLanguage = function(langKey) {
         $translate.use(langKey);
       };
-    }
+  }
 
 	function AppController($scope, logger, Chronicle, $translate) {
 
@@ -418,7 +427,7 @@
   function WindowController($scope, logger) {
 
     this.langChooser = function() {
-      const modalPath = path.join('file://', __dirname, '/langChooser.html');
+      const modalPath = path.join('file://', __dirname, '/screens/langChooser.html');
       console.log(modalPath);
       let w_langChooser = new BrowserWindow({
           name: "Lang Chooser",
@@ -433,7 +442,7 @@
     }
 
     this.themeChooser = function() {
-      const modalPath = path.join('file://', __dirname, '/themeChooser.html');
+      const modalPath = path.join('file://', __dirname, '/screens/themeChooser.html');
       console.log(modalPath);
       let w_themeChooser = new BrowserWindow({
           name: "Theme Chooser",
@@ -448,7 +457,7 @@
     }
 
     this.commandList = function() {
-      const modalPath = path.join('file://', __dirname, '/commandList.html');
+      const modalPath = path.join('file://', __dirname, '/screens/commandList.html');
       console.log(modalPath);
       let w_commandList = new BrowserWindow({
           name: "Command List",

@@ -1,0 +1,36 @@
+<!-- Button -->
+		<md-content>
+			<md-subheader style="padding: 16px;" class="md-accent" translate="COMPONENT_BUTTON"></md-subheader>
+		  	<md-list flex>
+		  		<md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/label.svg" class="s24"></md-icon>
+			    	    <label>accessibilityLabel </label>
+				        <input ng-model="user.title">
+				    </md-input-container>
+		        </md-list-item>
+		        <!-- TODO: Add Color Picker -->
+		        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-content layout="row" flex>
+		            	<md-icon md-svg-src="./../assets/icons/eye-off.svg" class="s24"></md-icon>
+			    	    <p style="margin-left: 14px; margin-top: 20px;" flex>disabled</p>
+			    	    <span></span>
+				        <md-switch style="margin-right: 12px;" ng-model="text.accessible" aria-label="accessible"></md-switch>
+						</md-content>
+		        </md-list-item>
+		        <md-list-item style="margin-top: -20px; ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/function.svg" class="s24"></md-icon>
+			    	    <label>onPress</label>
+				        <input ng-model="user.title">
+				    </md-input-container>
+		        </md-list-item>
+		        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/format-title.svg" class="s24"></md-icon>
+			    	    <label>title</label>
+				        <input ng-model="user.title">
+				    </md-input-container>
+		        </md-list-item>
+		  	</md-list>
+		</md-content>

@@ -1,0 +1,60 @@
+.outsideWrapper { 
+  width:700px; 
+  height:1213px; 
+  margin:18px; 
+  border:1px solid black;
+  display: block;
+  margin: auto;
+  position: relative;
+}
+
+.insideWrapper { 
+  width:100%; 
+  height:100%; 
+  position:relative;
+  display: block;
+  margin: auto;
+}
+
+.coveredImage { 
+  width:100%; 
+  height:100%; 
+  position:absolute; 
+  top:0px; 
+  left:0px;
+  display: block;
+  margin: auto;
+}
+
+.coveringCanvas {  
+  position:absolute; 
+  top:145px; 
+  left:100px;
+  background-color: rgba(255,0,0,.1);
+  display: block;
+  margin: auto;
+}
+
+.gridOnCanvas { 
+  width:502px; 
+  height:900px; 
+  position:absolute; 
+  top:12%; 
+  left:14%;
+  display: block;
+  margin: auto;
+}
+
+.parentContentCanvas {
+	overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.childContentCanvas {
+	height: 100%;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

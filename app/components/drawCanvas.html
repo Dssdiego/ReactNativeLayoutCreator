@@ -1,0 +1,40 @@
+<!-- Canvas de Desenho -->
+    <md-content class="childContentCanvas" flex layout-padding style="">
+
+	  	<!-- Área de TABS -->
+	    <md-tabs md-selected="selectedIndex" flex layout="column" layout-fill md-border-bottom md-autoselect >
+	      <md-tab ng-repeat="tab in tabs"
+	              ng-disabled="tab.disabled"
+	              label="{{tab.title}}" flex layout="column">
+		  		  <md-tab-body>
+		  		  	  <div style="margin-top: 20px;" center>
+		  		  	  	
+				      	<md-button class="md-icon-button" ng-click="app.removeTab( tab )">
+				        	<md-icon md-menu-origin md-svg-icon="./../assets/icons/close.svg"></md-icon>
+				      	</md-button>
+				      	<div class="outsideWrapper">
+						    <div class="insideWrapper">
+						        <img src="./../assets/images/android-mockup.png" class="coveredImage">
+						        <canvas id="androidCanvas" class="coveringCanvas" width="500" height="900"></canvas>
+						    </div>
+						    <!-- Grid -->
+						    <svg id="gridCanvas" class="gridOnCanvas">
+							  <defs>
+							    <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+							      <path id="internalGrid" d="M 10 0 L 0 0 0 10" fill="none" stroke="dimgrey" stroke-width="0.5"/>
+							    </pattern>
+							    <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+							      <rect width="100" height="100" fill="url(#smallGrid)"/>
+							      <path id="externalGrid" d="M 100 0 L 0 0 0 100" fill="none" stroke="dimgrey" stroke-width="1"/>
+							    </pattern>
+							  </defs>
+							  <rect width="100%" height="100%" fill="url(#grid)" />
+							</svg>
+				      		<!-- <img id="gridCanvas" src="http://imgh.us/grid.svg" class="gridOnCanvas"/> -->
+						</div>
+					  </div>
+				  </md-tab-body>
+	      </md-tab>
+	    </md-tabs>
+
+    </md-content>

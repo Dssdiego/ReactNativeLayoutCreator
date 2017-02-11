@@ -1,11 +1,11 @@
 {
-  "name": "react-native-layout-creator",
+  "name": "RNLC",
   "description": "Layout Creator for React Native Apps",
   "scripts": {
     "postinstall": "install-app-deps",
     "start": "electron ./app --enable-logging --remote-debugging-port=9222",
     "dev": "NODE_ENV='development' npm run start",
-    "dist": "build -mwl --x64 --ia32",
+    "dist": "build --win --x64 --ia32",
     "prerelease:osx": "rimraf release/osx && mkdirp release/osx",
     "release:osx": "copyfiles -f dist/mac/*.{dmg,zip} release/osx && PACKAGE_VERSION=$(cat app/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && echo $PACKAGE_VERSION >> ./release/osx/VERSION",
     "prerelease:win32": "rimraf release/win32 && mkdirp release/win32",
@@ -54,8 +54,5 @@
     "win": {
       "iconUrl": "http://eatodo.s3.amazonaws.com/icon.ico"
     }
-  },
-  "dependencies": {
-    "electron-localshortcut": "^1.0.0"
   }
 }
