@@ -35,6 +35,17 @@
   margin: auto;
 }
 
+.coveringElemCanvas {
+  position:absolute; 
+  width: 505px;
+  height: 900px;
+  top:145px; 
+  left:100px;
+  background-color: rgba(255,0,0,.1);
+  display: block;
+  margin: auto;
+}
+
 .gridOnCanvas { 
   width:502px; 
   height:900px; 

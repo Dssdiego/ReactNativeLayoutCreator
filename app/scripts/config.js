@@ -40,6 +40,7 @@
 
                 "COMPONENT_PROPS": "Propriedades do Componente",
 
+                "COMPONENT_STATUS_BAR": "Status Bar",
                 "COMPONENT_TEXT": "Texto",
                 "COMPONENT_BUTTON": "Botão",
                 "COMPONENT_IMG": "Imagem",
@@ -98,6 +99,7 @@
 
                 "COMPONENT_PROPS": "Props of Component",
 
+                "COMPONENT_STATUS_BAR": "Status Bar",
                 "COMPONENT_TEXT": "Text",
                 "COMPONENT_BUTTON": "Button",
                 "COMPONENT_IMG": "Image",

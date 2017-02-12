@@ -1,0 +1,37 @@
+<!-- Status Bar -->
+		<md-content>
+			<md-subheader style="padding: 16px;" class="md-accent" translate="COMPONENT_STATUS_BAR"></md-subheader>
+		  	<md-list flex>
+		  		<md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/account-card-details.svg" class="s24"></md-icon>
+			    	    <label>ID</label>
+				        <input ng-model="btnComp.ID">
+				    </md-input-container>
+		        </md-list-item>
+		  		<md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-content layout="row" flex>
+		            	<md-icon md-svg-src="./../assets/icons/animation.svg" class="s24"></md-icon>
+			    	    <p style="margin-left: 14px; margin-top: 20px;" flex>animated</p>
+			    	    <span></span>
+				        <md-switch style="margin-right: 12px;" ng-model="text.accessible" aria-label="accessible"></md-switch>
+						</md-content>
+		        </md-list-item>
+		        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-content layout="row" flex>
+		            	<md-icon md-svg-src="./../assets/icons/eye-off.svg" class="s24"></md-icon>
+			    	    <p style="margin-left: 14px; margin-top: 20px;" flex>hidden</p>
+			    	    <span></span>
+				        <md-switch style="margin-right: 12px;" ng-model="text.accessible" aria-label="accessible"></md-switch>
+						</md-content>
+		        </md-list-item>
+		        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-content layout="row" flex>
+		            	<md-icon md-svg-src="./../assets/icons/opacity.svg" class="s24"></md-icon>
+			    	    <p style="margin-left: 14px; margin-top: 20px;" flex>translucent</p>
+			    	    <span></span>
+				        <md-switch style="margin-right: 12px;" ng-model="text.accessible" aria-label="accessible"></md-switch>
+						</md-content>
+		        </md-list-item>
+		  	</md-list>
+		</md-content>

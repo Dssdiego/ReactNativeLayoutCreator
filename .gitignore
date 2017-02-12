@@ -4,6 +4,8 @@ node_modules
 dist
 .vscode
 release
+temp
+export
 
 #files
 *.tgz

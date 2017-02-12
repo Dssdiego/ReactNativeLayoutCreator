@@ -4,6 +4,20 @@
 		  	<md-list flex>
 		  		<md-list-item ng-disabled="false" class="md-line" ng-click="">
 		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/account-card-details.svg" class="s24"></md-icon>
+			    	    <label>ID</label>
+				        <input ng-model="btnComp.ID">
+				    </md-input-container>
+		        </md-list-item>
+		        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/format-title.svg" class="s24"></md-icon>
+			    	    <label>title</label>
+				        <input ng-model="user.title">
+				    </md-input-container>
+		        </md-list-item>
+		  		<md-list-item ng-disabled="false" class="md-line" ng-click="">
+		            <md-input-container flex>
 		            	<md-icon md-svg-src="./../assets/icons/label.svg" class="s24"></md-icon>
 			    	    <label>accessibilityLabel </label>
 				        <input ng-model="user.title">
@@ -22,13 +36,6 @@
 		            <md-input-container flex>
 		            	<md-icon md-svg-src="./../assets/icons/function.svg" class="s24"></md-icon>
 			    	    <label>onPress</label>
-				        <input ng-model="user.title">
-				    </md-input-container>
-		        </md-list-item>
-		        <md-list-item ng-disabled="false" class="md-line" ng-click="">
-		            <md-input-container flex>
-		            	<md-icon md-svg-src="./../assets/icons/format-title.svg" class="s24"></md-icon>
-			    	    <label>title</label>
 				        <input ng-model="user.title">
 				    </md-input-container>
 		        </md-list-item>

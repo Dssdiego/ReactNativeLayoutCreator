@@ -1,6 +1,5 @@
   	<md-content>
   		<md-subheader style="padding: 16px;" class="md-accent" translate="COMPONENT_TEXT"></md-subheader>
-  		<div ng-controller="ComponentController as comp">
 		  	<md-list flex>
 		  		<md-list-item ng-disabled="false" class="md-line" ng-click="">
 		            <md-input-container flex>
@@ -9,13 +8,13 @@
 				        <input ng-model="txtComp.ID">
 				    </md-input-container>
 		        </md-list-item>
-			        <md-list-item ng-disabled="false" class="md-line">
-			            <md-input-container flex>
-			            	<md-icon md-svg-src="./../assets/icons/cursor-text.svg" class="s24"></md-icon>
-				    	    <label>Text</label>
-					        <input ng-model="txtComp.Text" ng-change="comp.onChangeText(txtComp.Text)">
-					    </md-input-container>
-			        </md-list-item>
+				<md-list-item ng-disabled="false" class="md-line">
+		            <md-input-container flex>
+		            	<md-icon md-svg-src="./../assets/icons/cursor-text.svg" class="s24"></md-icon>
+			    	    <label>Text</label>
+				        <input ng-model="txtComp.Text" ng-change="app.onChangeText(txtComp.Text)">
+				    </md-input-container>
+				</md-list-item>
 		  		<md-list-item ng-disabled="false" class="md-line" ng-click="">
 		            <md-content layout="row" flex>
 		            	<md-icon md-svg-src="./../assets/icons/eye.svg" class="s24"></md-icon>
@@ -71,7 +70,6 @@
 						</md-content>
 		        </md-list-item>
 		  	</md-list>
-	  	</div>
 	  	<md-subheader class="md-accent">Style</md-subheader>
 	  	<md-list flex>
 	  		<!-- TODO: Colocar Color Picker -->

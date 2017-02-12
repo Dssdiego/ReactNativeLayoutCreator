@@ -369,7 +369,7 @@
         <md-list flex>
 
 	        <!-- Status Bar -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('status-bar')">
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.drawStatusBar()">
 	          <md-icon md-svg-src="./../assets/icons/page-layout-header.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3>Status Bar</h3>
@@ -377,7 +377,7 @@
 	        </md-list-item>
 
 	        <!-- Action Bar -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('action-bar')">
+	        <md-list-item ng-drag="true" ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.drawActionBar()">
 	          <md-icon md-svg-src="./../assets/icons/format-color-text.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3>Action Bar</h3>
@@ -467,7 +467,7 @@
         <md-list flex>
 
         	<!-- Texto -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('text')">
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.drawText()">
 	          <md-icon md-svg-src="./../assets/icons/format-text.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3 translate="COMPONENT_TEXT"></h3>
@@ -475,7 +475,7 @@
 	        </md-list-item>
 
 	        <!-- Botão -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('button')">
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.drawButton()">
 	          <md-icon md-svg-src="./../assets/icons/shape-square-plus.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3 translate="COMPONENT_BUTTON"></h3>
@@ -483,7 +483,7 @@
 	        </md-list-item>
 
 	        <!-- Imagem -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('image')">
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.drawImage()">
 	          <md-icon md-svg-src="./../assets/icons/image.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3 translate="COMPONENT_IMG"></h3>
@@ -499,7 +499,7 @@
 	        </md-list-item>
 
 	        <!-- FAB -->
-	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.placeComponent('fab')">
+	        <md-list-item ng-disabled="app.disableSaveBtn()" class="md-2-line" ng-click="app.drawFAB()">
 	          <md-icon md-svg-src="./../assets/icons/plus-circle.svg" class="s24"></md-icon>
 	          <div class="md-list-item-text" layout="column">
 	            <h3>FAB</h3>
@@ -609,6 +609,9 @@
       </md-toolbar>
 
       <md-content layout-margin style="height: 50%;">
+
+      	<!-- Status Bar -->
+      	<div id="statusBarProps" ng-include="'./components/statusBarProps.html'" ng-show="selectedComp == 'status-bar'"></div>
 
       	<!-- Text -->
       	<div id="textProps" ng-include="'./components/textProps.html'" ng-show="selectedComp == 'text'"></div>

@@ -50,7 +50,7 @@
 
     const RNComp = {
       textImport: RNCompDefault.import + '\n  Text,',
-      text: RNCompDefault.view + '\n        <Text style={styles.text}>Texto</Text>',
+      text: RNCompDefault.view + '\n        <Text style={styles.text}>InsertedText</Text>',
       textProps: RNCompDefault.styles + '\ntext: {\n' + '  color: \'black\',' +
                  '\n  textAlignVertical: \'center\'' + '\n}',
 
@@ -62,16 +62,7 @@
     .controller('InternalGridController', ['$scope', 'logger', InternalGridController])
     .controller('ExternalGridController', ['$scope', 'logger', ExternalGridController])
     .controller('WindowController', ['$scope', 'logger', WindowController])
-    .controller('LanguageSwitchController', ['$scope', '$translate', LanguageSwitchController])
-    .controller('ComponentController', ['$scope', 'logger', ComponentController]);
-
-  function ComponentController($scope, logger) {
-
-    this.onChangeText = function(p_newText) {
-      console.log('onChangeText: ' + p_newText);
-    }
-
-  }
+    .controller('LanguageSwitchController', ['$scope', '$translate', LanguageSwitchController]);
 
   function LanguageSwitchController($scope, $translate) {
       $scope.changeLanguage = function(langKey) {
@@ -79,10 +70,11 @@
       };
   }
 
-	function AppController($scope, logger, Chronicle, $translate) {
+	function AppController($scope, logger, Chronicle, $translate, $timeout) {
 
     $scope.lang = 'pt-br';
     $scope.selectedComp = null;
+    $scope.oldText = null;
 
     // Color Pickers
     $scope.colorPickerOptions = [
@@ -102,9 +94,9 @@
     $scope.colorPickerChanged = function(newColor, oldColor) {
         console.log('from ', oldColor, ' to ', newColor);
 
-        var canvas = document.getElementById("androidCanvas");        
+        var canvas = document.getElementById("elementCanvas");        
 
-        canvas.style.background = newColor;
+        canvas.style.backgroundColor = newColor;
     }
 
 		// Tabs do Canvas de Desenho
@@ -259,69 +251,169 @@
         tabs[$scope.selectedIndex].title = title;
       }
 
-      this.placeComponent = function(component) {
-        this.drawOnCanvas(component);
-        this.createRNComp(component);
-      }
+      // this.placeComponent = function(component) {
+      //   this.drawOnCanvas(component);
+      //   this.createRNComp(component);
+      // }
 
       // Canvas
-      this.drawOnCanvas = function(component) {
+      this.drawStatusBar = function() {
+        // var statusBar = document.createElement("img");
+        // statusBar.src = "./../assets/images/action-bar.png";
+        // document.getElementById("elementCanvas").appendChild(actBar);
 
-        var canvas = document.getElementById("androidCanvas");
-        var ctx = canvas.getContext('2d');
+        $scope.selectedComp = 'status-bar';
 
-        if (canvas.getContext) {
-
-          switch (component) {
-            case 'status-bar':
-              var imgHora = new Image();
-
-              imgHora.onload = function() {
-                ctx.drawImage(imgHora, 400, 0);
-              }
-              imgHora.src = "./../assets/icons/wifi.svg";
-
-              ctx.globalAlpha = 0.4;
-              ctx.fillStyle = matColors.teal;
-              ctx.fillRect(0, 0, canvas.width, 20);
-              ctx.globalAlpha = 1;
-
-              ctx.font = "16px Roboto Regular";
-              ctx.fillStyle = "white";
-              ctx.fillText("12:30", 455, 15);
-
-              $scope.selectedComp = 'status-bar';
-              break;
-            case 'text':
-              ctx.font = "26px Roboto Regular";
-              ctx.fillStyle = "black";
-              ctx.fillText("Texto", 220, 450);
-
-              $scope.selectedComp = 'text';
-              break;
-            case 'button':
-              $scope.selectedComp = 'button';
-              break;
-            case 'fab':
-              var X = 435;
-              var Y = 835;
-              var radius = 35;
-
-              ctx.beginPath();
-              ctx.arc(X, Y, radius, 0, 2 * Math.PI, false);
-              ctx.fillStyle = matColors.pink;
-              ctx.fill();
-              ctx.lineWidth = 2;
-              ctx.strokeStyle = 'black';
-              ctx.stroke();
-
-              $scope.selectedComp = 'fab';
-              break;
-            default:
-              console.log('Entrou no default');
-          }
-        }
+        // this.createRNComp('action-bar');
       }
+
+      this.drawActionBar = function() {
+        var actBar = document.createElement("img");
+        actBar.src = "./../assets/images/action-bar.png";
+        document.getElementById("elementCanvas").appendChild(actBar);
+
+        $scope.selectedComp = 'action-bar';
+
+        // this.createRNComp('action-bar');
+      }
+
+      this.drawNavDrawer = function() {
+        $scope.selectedComp = 'nav-drawer';
+      }
+
+      this.drawListView = function() {
+        $scope.selectedComp = 'list-view';
+      }
+
+      this.drawGridView = function() {
+        $scope.selectedComp = 'grid-view';
+      }
+
+      this.drawTabView = function() {
+        $scope.selectedComp = 'tab-view';
+      }
+
+      this.drawMapView = function() {
+        $scope.selectedComp = 'map-view';
+      }
+
+      this.drawTouchHighlight = function() {
+        $scope.selectedComp = 'touch-highlight';
+      }
+
+      this.drawTouchNatFeedback = function() {
+        $scope.selectedComp = 'touch-natFeedback';
+      }
+
+      this.drawTouchOpacity = function() {
+        $scope.selectedComp = 'touch-opacity';
+      }
+
+      this.drawText = function() {
+        var txt = document.createElement("P");
+        txt.text = "Texto";
+        document.getElementById("elementCanvas").appendChild(txt);
+
+        $scope.selectedComp = 'text';
+
+        // this.createRNComp('text');
+      }
+
+      this.drawButton = function() {
+        var btn = document.createElement("button");
+        btn.text = "Botão de Teste";
+        document.getElementById("elementCanvas").appendChild(btn);
+
+        $scope.selectedComp = 'button';
+
+        // this.createRNComp('btn');
+      }
+
+      this.drawImage = function() {
+        var img = document.createElement("img");
+        img.width = 60;
+        img.height = 60;
+        document.getElementById("elementCanvas").appendChild(img);
+
+        $scope.selectedComp = 'image';
+
+        // this.createRNComp('img');
+      }
+
+      // this.drawDatePicker = function() {}
+
+      this.drawFAB = function() {
+        var fab = document.createElement("img");
+        fab.src = "./../assets/icons/plus-circle.svg";
+        fab.width = 60;
+        fab.height = 60;
+        document.getElementById("elementCanvas").appendChild(fab);
+
+        $scope.selectedComp = 'fab';
+
+        // this.createRNComp('fab');
+      }
+
+      // this.drawRefreshControl = function() {}
+
+      // Canvas
+      // this.drawOnCanvas = function(component) {
+
+      //   var canvas = document.getElementById("androidCanvas");
+      //   var ctx = canvas.getContext('2d');
+
+      //   if (canvas.getContext) {
+
+      //     switch (component) {
+      //       case 'status-bar':
+      //         var imgHora = new Image();
+
+      //         imgHora.onload = function() {
+      //           ctx.drawImage(imgHora, 400, 0);
+      //         }
+      //         imgHora.src = "./../assets/icons/wifi.svg";
+
+      //         ctx.globalAlpha = 0.4;
+      //         ctx.fillStyle = matColors.teal;
+      //         ctx.fillRect(0, 0, canvas.width, 20);
+      //         ctx.globalAlpha = 1;
+
+      //         ctx.font = "16px Roboto Regular";
+      //         ctx.fillStyle = "white";
+      //         ctx.fillText("12:30", 455, 15);
+
+      //         $scope.selectedComp = 'status-bar';
+      //         break;
+      //       case 'text':
+      //         ctx.font = "26px Roboto Regular";
+      //         ctx.fillStyle = "black";
+      //         ctx.fillText("Texto", 220, 450);
+
+      //         $scope.selectedComp = 'text';
+      //         break;
+      //       case 'button':
+      //         $scope.selectedComp = 'button';
+      //         break;
+      //       case 'fab':
+      //         var X = 435;
+      //         var Y = 835;
+      //         var radius = 35;
+
+      //         ctx.beginPath();
+      //         ctx.arc(X, Y, radius, 0, 2 * Math.PI, false);
+      //         ctx.fillStyle = matColors.pink;
+      //         ctx.fill();
+      //         ctx.lineWidth = 2;
+      //         ctx.strokeStyle = 'black';
+      //         ctx.stroke();
+
+      //         $scope.selectedComp = 'fab';
+      //         break;
+      //       default:
+      //         console.log('Entrou no default');
+      //     }
+      //   }
+      // }
 
       this.createRNComp = function(component) {
         switch(component) {
@@ -340,6 +432,32 @@
                 console.log('Entrou no default');
         }
       }
+
+    // this.drawTextOnCanvas = function(text) {
+    //   var canvas = document.getElementById("androidCanvas");
+    //   var ctx = canvas.getContext('2d');
+
+    //   if (canvas.getContext) {
+    //     canvas.width = canvas.width;
+    //     ctx.translate(canvas.width / 2, canvas.height / 2);
+    //     ctx.font = '18pt Calibri';
+    //     ctx.textAlign = 'center';
+    //     ctx.fillStyle = '#000';
+    //     ctx.fillText(text, 0, 0);
+    //   }
+    // }
+
+    this.onChangeText = function(newText) {
+      var leitura = jetpack.read(temp.path('Sem Titulo.js'));
+      
+      // this.drawTextOnCanvas(newText);
+
+      setTimeout(function () {
+        var res = leitura.replace('InsertedText', newText);
+
+        jetpack.writeAsync(temp.path('Sem Titulo.js'), res);
+      }, 10000);
+    }
 
       this.showComponentProps = function(component, visibility) {
         if (visibility == true)
