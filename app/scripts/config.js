@@ -129,13 +129,13 @@
             //    prefix: './translations/locale-pt-br',
             //    suffix: '.json'
             // })
-            .preferredLanguage('pt-br')
+            .preferredLanguage('en')
             .useMissingTranslationHandlerLog();
     }
 
 	function configure($mdThemingProvider) {
 	    // Default Theme : Indigo
-	    // $mdThemingProvider
+	    $mdThemingProvider
 	    // 	.theme('default')
     	// 	.primaryPalette('green')
     	// 	.accentPalette('orange');

@@ -1,0 +1,172 @@
+<!-- Image -->
+	<md-content>
+		<md-subheader style="padding: 16px;" class="md-accent" translate="COMPONENT_IMG"></md-subheader>
+	  	<md-list flex>
+	  		<md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/account-card-details.svg" class="s24"></md-icon>
+		    	    <label>ID</label>
+			        <input ng-model="imgComp.ID">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item style="margin-top: -20px;" ng-disabled="false" lass="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/function.svg" class="s24"></md-icon>
+		    	    <label>onError</label>
+			        <input ng-model="imgComp.onError">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item style="margin-top: -20px;" ng-disabled="false" lass="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/function.svg" class="s24"></md-icon>
+		    	    <label>onLayout</label>
+			        <input ng-model="imgComp.onLayout">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item style="margin-top: -20px;" ng-disabled="false" lass="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/function.svg" class="s24"></md-icon>
+		    	    <label>onLoad</label>
+			        <input ng-model="imgComp.onLoad">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item style="margin-top: -20px;" ng-disabled="false" lass="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/function.svg" class="s24"></md-icon>
+		    	    <label>onLoadStart</label>
+			        <input ng-model="imgComp.onLoadStart">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item style="margin-top: -20px;" ng-disabled="false" lass="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/function.svg" class="s24"></md-icon>
+		    	    <label>onLoadEnd</label>
+			        <input ng-model="imgComp.onLoadEnd">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-content layout="row" flex>
+		            <md-icon md-svg-src="./../assets/icons/dots-horizontal.svg" class="s24"></md-icon >
+	            	<md-select style="margin-left: 14px;" ng-model="imgComp.resizeMode" placeholder="resizeMode" flex>
+				      <md-option value="cover" ng-click="">cover</md-option>
+				      <md-option value="contain" ng-click="">contain</md-option>
+				      <md-option value="stretch" ng-click="">stretch</md-option>
+				      <md-option value="repeat" ng-click="">repeat</md-option>
+				      <md-option value="center" ng-click="">center</md-option>
+				    </md-select>
+				</md-content>
+	        </md-list-item>
+	        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/dots-horizontal.svg" class="s24"></md-icon>
+		    	    <label>source</label>
+			        <input ng-model="imgComp.Source">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/account-card-details.svg" class="s24"></md-icon>
+		    	    <label>testID</label>
+			        <input ng-model="imgComp.testID">
+			    </md-input-container>
+	        </md-list-item>
+	  	</md-list>
+	  	<md-subheader class="md-accent">Style</md-subheader>
+	  	<md-list>
+	  		<md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-content layout="row" flex>
+		            <md-icon md-svg-src="./../assets/icons/eye.svg" class="s24"></md-icon >
+	            	<md-select style="margin-left: 14px;" ng-model="imgComp.backfaceVisibility" placeholder="backfaceVisibility" flex>
+				      <md-option value="visible" ng-click="">visible</md-option>
+				      <md-option value="hidden" ng-click="">hidden</md-option>
+				    </md-select>
+				</md-content>
+	        </md-list-item>
+	        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/invert-colors.svg" class="s24"></md-icon>
+		    	    <label>backgroundColor</label>
+			        <input ng-model="imgComp.backgroundColor">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/arrow-bottom-left.svg" class="s24"></md-icon>
+		    	    <label>borderBottomLeftRadius</label>
+			        <input ng-model="imgComp.borderBottomLeftRadius" type="number">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/arrow-bottom-right.svg" class="s24"></md-icon>
+		    	    <label>borderBottomRightRadius</label>
+			        <input ng-model="imgComp.borderBottomRightRadius" type="number">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/invert-colors.svg" class="s24"></md-icon>
+		    	    <label>borderColor</label>
+			        <input ng-model="imgComp.borderColor">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/border-outside.svg" class="s24"></md-icon>
+		    	    <label>borderRadius</label>
+			        <input ng-model="imgComp.borderRadius" type="number">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/arrow-top-left.svg" class="s24"></md-icon>
+		    	    <label>borderTopLeftRadius</label>
+			        <input ng-model="imgComp.borderTopLeftRadius" type="number">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/arrow-top-right.svg" class="s24"></md-icon>
+		    	    <label>borderTopRightRadius</label>
+			        <input ng-model="imgComp.borderTopRightRadius" type="number">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/format-line-spacing.svg" class="s24"></md-icon>
+		    	    <label>borderWidth</label>
+			        <input ng-model="imgComp.borderWidth" type="number">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/opacity.svg" class="s24"></md-icon>
+		    	    <label>opacity</label>
+			        <input ng-model="imgComp.opacity" type="number">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-content layout="row" flex>
+		            <md-icon md-svg-src="./../assets/icons/eye.svg" class="s24"></md-icon >
+	            	<md-select style="margin-left: 14px;" ng-model="imgComp.overflow" placeholder="overflow" flex>
+				      <md-option value="visible" ng-click="">visible</md-option>
+				      <md-option value="hidden" ng-click="">hidden</md-option>
+				    </md-select>
+				</md-content>
+	        </md-list-item>
+	        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/window-restore.svg" class="s24"></md-icon>
+		    	    <label>resizeMode</label>
+			        <input ng-model="imgComp.resizeMode">
+			    </md-input-container>
+	        </md-list-item>
+	        <md-list-item ng-disabled="false" class="md-line" ng-click="">
+	            <md-input-container flex>
+	            	<md-icon md-svg-src="./../assets/icons/invert-colors.svg" class="s24"></md-icon>
+		    	    <label>tintColor</label>
+			        <input ng-model="imgComp.tintColor">
+			    </md-input-container>
+	        </md-list-item>
+	  	</md-list>
+	</md-content>

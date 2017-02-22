@@ -316,7 +316,7 @@
 
         $scope.selectedComp = 'text';
 
-        // this.createRNComp('text');
+        this.createRNComp('text');
       }
 
       this.drawButton = function() {
