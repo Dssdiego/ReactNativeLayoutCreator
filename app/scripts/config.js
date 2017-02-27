@@ -16,6 +16,7 @@
                 "SUP_MENU_SAVE_SCENE_AS": "Salvar Como...",
                 "SUP_MENU_IMPORT": "Importar...",
                 "SUP_MENU_EXPORT": "Exportar...",
+                "SUP_MENU_TEMPLATES": "Templates...",
                 "SUP_MENU_QUIT": "Sair",
 
                 "SUP_MENU_EDIT": "Editar",
@@ -64,6 +65,8 @@
                 "THEME_CHOOSER": "Seletor de Tema",
                 "THEME": "Tema:",
 
+                "TEMPLATE_CHOOSER": "Escolha seu template",
+
                 "NO_COMPONENT": "Não há nenhum componente selecionado no momento",
             })
             .translations('en', {
@@ -75,6 +78,7 @@
                 "SUP_MENU_SAVE_SCENE_AS": "Save As...",
                 "SUP_MENU_IMPORT": "Import...",
                 "SUP_MENU_EXPORT": "Export...",
+                "SUP_MENU_TEMPLATES": "Templates...",
                 "SUP_MENU_QUIT": "Quit",
 
                 "SUP_MENU_EDIT": "Edit",
@@ -122,6 +126,8 @@
 
                 "THEME_CHOOSER": "Theme Selector",
                 "THEME": "Theme:",
+
+                "TEMPLATE_CHOOSER": "Choose your template",
 
                 "NO_COMPONENT": "There is no component selected",
             })

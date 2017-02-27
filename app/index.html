@@ -107,6 +107,13 @@
 			        </md-menu-item>
 			        <md-menu-divider></md-menu-divider>
 			        <md-menu-item>
+			          <md-button id="menuSaveAsBtn" ng-disabled="" ng-click="app.templateChooser()">
+			            <md-icon md-svg-icon="./../assets/icons/lead-pencil.svg"></md-icon>
+			            <p translate="SUP_MENU_TEMPLATES"></p>
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-divider></md-menu-divider>
+			        <md-menu-item>
 			          <md-button ng-click="app.exitApp($event)">
 			          	<div layout="row" layout-align="start center" flex>
 				            <md-icon md-svg-icon="./../assets/icons/exit-to-app.svg"></md-icon>

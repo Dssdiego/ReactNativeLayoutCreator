@@ -62,7 +62,8 @@
     .controller('InternalGridController', ['$scope', 'logger', InternalGridController])
     .controller('ExternalGridController', ['$scope', 'logger', ExternalGridController])
     .controller('WindowController', ['$scope', 'logger', WindowController])
-    .controller('LanguageSwitchController', ['$scope', '$translate', LanguageSwitchController]);
+    .controller('LanguageSwitchController', ['$scope', '$translate', LanguageSwitchController])
+    .controller('TemplateController', ['$scope', 'logger', TemplateController]);
 
   function LanguageSwitchController($scope, $translate) {
       $scope.changeLanguage = function(langKey) {
@@ -504,6 +505,20 @@
         $translate.use(langKey);
       }
 
+      this.templateChooser = function() {
+        const modalPath = path.join('file://', __dirname, '/screens/templateChooser.html');
+        let w_templateChooser = new BrowserWindow({
+            name: "Template Chooser",
+            width: 800,
+            height: 600,
+            toolbar: true,
+            frame: false
+        });
+        w_templateChooser.on('close', function () { win = null });
+        w_templateChooser.loadURL(modalPath);
+        w_templateChooser.show(); 
+    }
+
 	}
 
   function InternalGridController($scope, logger) {
@@ -588,6 +603,13 @@
       w_commandList.loadURL(modalPath);
       w_commandList.show();
     }
+
+  }
+
+  function TemplateController($scope, logger) {
+    var templates = [];
+
+      templates.title = "Some Text";
 
   }
 	
