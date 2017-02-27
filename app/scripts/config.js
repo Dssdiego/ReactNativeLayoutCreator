@@ -135,7 +135,7 @@
             //    prefix: './translations/locale-pt-br',
             //    suffix: '.json'
             // })
-            .preferredLanguage('en')
+            .preferredLanguage('pt-br')
             .useMissingTranslationHandlerLog();
     }
 

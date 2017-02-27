@@ -62,8 +62,7 @@
     .controller('InternalGridController', ['$scope', 'logger', InternalGridController])
     .controller('ExternalGridController', ['$scope', 'logger', ExternalGridController])
     .controller('WindowController', ['$scope', 'logger', WindowController])
-    .controller('LanguageSwitchController', ['$scope', '$translate', LanguageSwitchController])
-    .controller('TemplateController', ['$scope', 'logger', TemplateController]);
+    .controller('LanguageSwitchController', ['$scope', '$translate', LanguageSwitchController]);
 
   function LanguageSwitchController($scope, $translate) {
       $scope.changeLanguage = function(langKey) {
@@ -519,6 +518,20 @@
         w_templateChooser.show(); 
     }
 
+    this.showTemplate = function(item) {
+      switch (item) {
+          case 'navDrawer':
+              console.log('Diego');
+          break;
+          case 'listView':
+          break;
+          case 'tabView': 
+          break;
+          case 'gridView':
+          break;
+      }
+    }
+
 	}
 
   function InternalGridController($scope, logger) {
@@ -603,13 +616,6 @@
       w_commandList.loadURL(modalPath);
       w_commandList.show();
     }
-
-  }
-
-  function TemplateController($scope, logger) {
-    var templates = [];
-
-      templates.title = "Some Text";
 
   }
 	

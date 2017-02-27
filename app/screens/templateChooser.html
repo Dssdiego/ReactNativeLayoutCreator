@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{lang}}">
 <meta charset="utf-8"/>
 <head>
   <title>Template Chooser</title>
@@ -58,28 +58,37 @@
 
   <!-- <section layout="row" flex> -->
 
-  <div layout="row">
-    <div>
-      <img class="imgTemplate" src="./../../assets/images/android-mockup.png">
-      <p>Navigation Drawer</p>
-    </div>
-    <div>
-      <img class="imgTemplate" src="./../../assets/images/android-mockup.png">
-      <p>Navigation Drawer</p>
-    </div>
-    <div>
-      <img class="imgTemplate" src="./../../assets/images/android-mockup.png">
-      <p>Navigation Drawer</p>
-    </div>
-    <div>
-      <img class="imgTemplate" src="./../../assets/images/android-mockup.png">
-      <p>Navigation Drawer</p>
-    </div>
-    <div>
-      <img class="imgTemplate" src="./../../assets/images/android-mockup.png">
-      <p>Navigation Drawer</p>
-    </div>
-  </div>
+  <md-grid-list md-cols="4" md-row-height="350px">
+
+    <md-grid-tile class="gray tile" ng-click="app.showTemplate('navDrawer')">
+      <img class="image" src="./../../assets/images/navDrawerTemplate.png">
+      <md-grid-tile-footer class="footer">
+        <h3>Navigation Drawer</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="gray tile" ng-click="app.showTemplate('listView')">
+      <img class="image" src="./../../assets/images/listViewTemplate.png">
+      <md-grid-tile-footer class="footer">
+        <h3>List View</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="gray tile" ng-click="app.showTemplate('tabView')">
+      <img class="image" src="./../../assets/images/tabViewTemplate.png">
+      <md-grid-tile-footer class="footer">
+        <h3>Tab View</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="gray tile" ng-click="app.showTemplate('gridView')">
+      <img class="image" src="./../../assets/images/gridViewTemplate.png">
+      <md-grid-tile-footer class="footer">
+        <h3>Grid View</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+  </md-grid-list>
 
   <!-- $mdThemingProvider.setDefaultTheme('altTheme'); -->
 
