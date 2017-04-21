@@ -13,6 +13,7 @@ Read this in another languages: :fr: [Français](), :es: [Spañol](), [Portuguê
 7. [Configuration](#configuration)
 
 <a name="description"/>
+
 ## Description
 
 This project aims to create React Native Layouts easy and fast, just by dropping components in a canvas.
@@ -22,6 +23,7 @@ After you create your layout visually, the software generates the React Native C
 Cool, huh?
 
 <a name="why"/>
+
 ## Why?
 
 In the current days we have some tools for creating React Native Code, but we don't have a tool for creating layouts for your apps in an easy way, like UI Design.
@@ -31,6 +33,7 @@ So I tought that could be nice to have a software to do that.
 Then RNLC (React Native Layout Creator) was born. :smiley:
 
 <a name="development"/>
+
 ## Development
 
 Thinking that the software should run in every machine out there (Linux, Mac, Windows), RNLC is being developed using the [Electron Framework](https://electron.atom.io/).
@@ -38,6 +41,7 @@ Thinking that the software should run in every machine out there (Linux, Mac, Wi
 With that in mind, the software is all written using AngularJS, HTML and CSS.
 
 <a name="work"/>
+
 ## How it works?
 
 RNLC gets the components inside the canvas and "*translates*" the code to a file (localized on the **temp folder** of the project).
@@ -78,6 +82,7 @@ const styles = StyleSheet.create({
 ```
 
 <a name="using"/>
+
 ## How to Use
 
 There are two ways to create layouts, which are:
@@ -93,8 +98,6 @@ There are two ways to create layouts, which are:
 
 #### Exporting Code
 
-####
-
 ### Using Templates
 
 To see the available templates, click on the "menu" and select Templates.
@@ -102,11 +105,13 @@ To see the available templates, click on the "menu" and select Templates.
 Then choose your template.
 
 <a name="contibute"/>
+
 ## How To Contribute
 
 > Soon...
 
 <a name="configuration"/>
+
 ## Configuration
 
 ### Language
