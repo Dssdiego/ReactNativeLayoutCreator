@@ -1,6 +1,6 @@
 {
   "name": "RNLC",
-  "description": "Layout Creator for React Native Apps",
+  "description": "A new way to create layouts for your React Native Apps",
   "scripts": {
     "postinstall": "install-app-deps",
     "start": "electron ./app --enable-logging --remote-debugging-port=9222",

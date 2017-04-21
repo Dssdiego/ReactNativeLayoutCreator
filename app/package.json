@@ -1,6 +1,6 @@
 {
   "name": "RNLC",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "React Native Layout Creator",
   "author": "Vjekoslav Ratkajec <vjeko@creaticon.hr>",
   "main": "main.js",
