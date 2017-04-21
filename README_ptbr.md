@@ -1,6 +1,6 @@
 # React Native Layout Creator - RNLC
 
-Leia em outras línguas: :fr: [Francês](), :es: [Espanhol](), :us: [Inglês]()
+Leia em outras línguas: :fr: [Francês](), :es: [Espanhol](), :us: [Inglês](https://github.com/Dssdiego/ReactNativeLayoutCreator)
 
 ## Descrição
 
